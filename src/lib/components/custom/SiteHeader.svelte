@@ -81,7 +81,7 @@
 			{/if}
 		</nav>
 		<!-- <MobileNav /> -->
-		<div class="flex flex-1 items-center justify-end space-x-2 pr-2">
+		<div class="flex flex-1 items-center justify-end space-x-2 pr-4">
 			<!-- <div class="w-full flex-1 md:w-auto md:flex-none">
 				<CommandMenu />
 			</div> -->
