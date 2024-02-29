@@ -30,13 +30,13 @@
 >
 	<div class="mx-auto flex h-14 max-w-screen-md items-center">
 		<nav class={cn('flex items-center space-x-1 pl-2', className)}>
-			<Button variant="ghost" class="font-bold">Details</Button>
-			<Button variant="ghost" class="font-bold">Photos</Button>
-			<Button variant="ghost" class="font-bold">Reviews</Button>
+			<Button variant="ghost" class="font-bold landscape:text-lg">Gallery</Button>
+			<Button variant="ghost" class="font-bold landscape:text-lg">Details</Button>
+			<Button variant="ghost" class="font-bold landscape:text-lg">Reviews</Button>
 			{#if $isDesktop}
 				<Dialog.Root bind:open>
 					<Dialog.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]} class="font-bold">Contact</Button>
+						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg">Contact</Button>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
 						<Dialog.Header>
@@ -61,7 +61,7 @@
 			{:else}
 				<Drawer.Root bind:open>
 					<Drawer.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]} class="font-bold">Contact</Button>
+						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg">Contact</Button>
 					</Drawer.Trigger>
 					<Drawer.Content>
 						{#if fadeIn}

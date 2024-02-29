@@ -6,10 +6,10 @@
 	import TailwindIndicator from '$lib/components/custom/TailwindIndicator.svelte';
 </script>
 
-<div class="bg-slate-500">
+<div class="bg-slate-500 dark:bg-slate-600">
 	<div class="relative flex min-h-screen flex-col bg-background" id="page" data-vaul-drawer-wrapper>
 		<SiteHeader />
-		<div class="container mt-6 flex max-w-screen-md items-center">
+		<div class="container p-4 mt-12 flex max-w-screen-md items-center">
 			<slot />
 		</div>
 		<SiteFooter />
