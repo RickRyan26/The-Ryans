@@ -26,19 +26,17 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+	class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
-	<div class="flex h-14 max-w-screen-2xl items-center">
+	<div class="mx-auto flex h-14 max-w-screen-md items-center">
 		<nav class={cn('flex items-center space-x-1 pl-2', className)}>
-			<Button variant="ghost" class="font-bold landscape:text-lg">Photos</Button>
-			<Button variant="ghost" class="font-bold landscape:text-lg">Details</Button>
-			<Button variant="ghost" class="font-bold landscape:text-lg">Reviews</Button>
+			<Button variant="ghost" class="font-bold">Details</Button>
+			<Button variant="ghost" class="font-bold">Photos</Button>
+			<Button variant="ghost" class="font-bold">Reviews</Button>
 			{#if $isDesktop}
 				<Dialog.Root bind:open>
 					<Dialog.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg"
-							>Contact</Button
-						>
+						<Button variant="ghost" builders={[builder]} class="font-bold">Contact</Button>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
 						<Dialog.Header>
@@ -63,9 +61,7 @@
 			{:else}
 				<Drawer.Root bind:open>
 					<Drawer.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg"
-							>Contact</Button
-						>
+						<Button variant="ghost" builders={[builder]} class="font-bold">Contact</Button>
 					</Drawer.Trigger>
 					<Drawer.Content>
 						{#if fadeIn}

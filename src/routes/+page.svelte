@@ -5,7 +5,7 @@
 </script>
 
 <div>
-	<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+	<h1 class="scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl">
 		{title}
 	</h1>
 	<p class="leading-7 [&:not(:first-child)]:mt-6">
@@ -18,6 +18,94 @@
 	>
 		The King's Plan
 	</h2>
+
+	<div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
+				alt=""
+			/>
+		</div>
+		<div>
+			<img
+				class="h-auto max-w-full rounded-lg"
+				src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
+				alt=""
+			/>
+		</div>
+	</div>
+
 	<p class="leading-7 [&:not(:first-child)]:mt-6">
 		The king thought long and hard, and finally came up with{' '}
 		<!-- svelte-ignore a11y-invalid-attribute -->
