@@ -8,7 +8,7 @@
 
 <div class="relative flex min-h-screen flex-col bg-background" id="page" data-vaul-drawer-wrapper>
 	<SiteHeader />
-	<div class="container mt-6 flex max-w-screen-2xl items-center">
+	<div class="container mt-6 flex max-w-screen-lg items-center">
 		<slot />
 	</div>
 	<SiteFooter />

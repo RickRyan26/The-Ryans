@@ -7,12 +7,22 @@
 	import { Label } from '$lib/components/ui/label';
 	import { Button } from '$lib/components/ui/button';
 	import { mediaQuery } from 'svelte-legos';
+	import { fade, slide } from 'svelte/transition';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
 
 	const isDesktop = mediaQuery('(min-width: 768px)');
 	let open;
+	let fadeIn = false;
+
+	$: if (open) {
+		setTimeout(() => {
+			fadeIn = true;
+		}, 50);
+	} else {
+		fadeIn = false;
+	}
 </script>
 
 <header
@@ -20,13 +30,15 @@
 >
 	<div class="flex h-14 max-w-screen-2xl items-center">
 		<nav class={cn('flex items-center space-x-1 pl-2', className)}>
-			<Button variant="ghost">Photos</Button>
-			<Button variant="ghost">Details</Button>
-			<Button variant="ghost">Reviews</Button>
+			<Button variant="ghost" class="font-bold landscape:text-lg">Photos</Button>
+			<Button variant="ghost" class="font-bold landscape:text-lg">Details</Button>
+			<Button variant="ghost" class="font-bold landscape:text-lg">Reviews</Button>
 			{#if $isDesktop}
 				<Dialog.Root bind:open>
 					<Dialog.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]}>Contact</Button>
+						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg"
+							>Contact</Button
+						>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
 						<Dialog.Header>
@@ -51,31 +63,37 @@
 			{:else}
 				<Drawer.Root bind:open>
 					<Drawer.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]}>Contact</Button>
+						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg"
+							>Contact</Button
+						>
 					</Drawer.Trigger>
 					<Drawer.Content>
-						<Drawer.Header class="text-left">
-							<Drawer.Title>Contact</Drawer.Title>
-							<Drawer.Description>
-								Make changes to your profile here. Click save when you're done.
-							</Drawer.Description>
-						</Drawer.Header>
-						<form class="grid items-start gap-4 px-4">
-							<div class="grid gap-2">
-								<Label for="email">Email</Label>
-								<Input type="email" id="email" value="shadcn@example.com" />
+						{#if fadeIn}
+							<div in:slide>
+								<Drawer.Header class="text-left">
+									<Drawer.Title>Contact</Drawer.Title>
+									<Drawer.Description>
+										Make changes to your profile here. Click save when you're done.
+									</Drawer.Description>
+								</Drawer.Header>
+								<form class="grid items-start gap-4 px-4">
+									<div class="grid gap-2">
+										<Label for="email">Email</Label>
+										<Input type="email" id="email" value="shadcn@example.com" />
+									</div>
+									<div class="grid gap-2">
+										<Label for="username">Username</Label>
+										<Input id="username" value="@shadcn" />
+									</div>
+									<Button type="submit">Save changes</Button>
+								</form>
+								<Drawer.Footer class="pt-2">
+									<Drawer.Close asChild let:builder>
+										<Button variant="outline" builders={[builder]}>Cancel</Button>
+									</Drawer.Close>
+								</Drawer.Footer>
 							</div>
-							<div class="grid gap-2">
-								<Label for="username">Username</Label>
-								<Input id="username" value="@shadcn" />
-							</div>
-							<Button type="submit">Save changes</Button>
-						</form>
-						<Drawer.Footer class="pt-2">
-							<Drawer.Close asChild let:builder>
-								<Button variant="outline" builders={[builder]}>Cancel</Button>
-							</Drawer.Close>
-						</Drawer.Footer>
+						{/if}
 					</Drawer.Content>
 				</Drawer.Root>
 			{/if}
