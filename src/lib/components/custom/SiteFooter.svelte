@@ -1,14 +1,26 @@
 <script lang="ts">
-	// import { siteConfig } from '$lib/config/site';
+	import IntersectionObserver from 'svelte-intersection-observer';
 	import { page } from '$app/stores';
 
 	const currentYear = new Date().getFullYear();
-	console.log(currentYear);
+
+	let node: HTMLElement;
+	let intersecting = false; // Initialize intersecting
+
+	// Reactive statement to trigger click when intersecting becomes true
+	$: if (intersecting) {
+		const contactTrigger = document.getElementById('contactTrigger');
+		if (contactTrigger) {
+			contactTrigger.click();
+		}
+	}
 </script>
 
-<footer class="mx-auto max-w-screen-md py-6">
-	<p class="text-right text-sm leading-loose text-muted-foreground">
-		© {currentYear}
-		{$page.data.title}
-	</p>
-</footer>
+<IntersectionObserver element={node} bind:intersecting>
+	<footer bind:this={node} class="card mt-12 block bg-opacity-50 py-6 shadow-lg backdrop-blur-sm">
+		<p class="text-center text-sm leading-loose text-muted-foreground">
+			© {currentYear}
+			{$page.data.title}
+		</p>
+	</footer>
+</IntersectionObserver>

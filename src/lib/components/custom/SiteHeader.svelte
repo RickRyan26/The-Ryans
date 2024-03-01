@@ -6,8 +6,10 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
 	import { Button } from '$lib/components/ui/button';
+	import { Textarea } from '$lib/components/ui/Textarea';
 	import { mediaQuery } from 'svelte-legos';
 	import { fade, slide } from 'svelte/transition';
+	import { Send } from 'lucide-svelte';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
@@ -36,32 +38,42 @@
 			{#if $isDesktop}
 				<Dialog.Root bind:open>
 					<Dialog.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg">Contact</Button>
+						<Button
+							id="contactTrigger"
+							variant="ghost"
+							builders={[builder]}
+							class="font-bold landscape:text-lg">Contact</Button
+						>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
 						<Dialog.Header>
 							<Dialog.Title>Contact</Dialog.Title>
 							<Dialog.Description>
-								Make changes to your profile here. Click save when you're done.
+								<div></div>
 							</Dialog.Description>
 						</Dialog.Header>
-						<form class="grid items-start gap-4">
+						<form class="grid items-start gap-4 px-6">
 							<div class="grid gap-2">
 								<Label for="email">Email</Label>
-								<Input type="email" id="email" value="shadcn@example.com" />
+								<Input type="email" id="email" placeholder="Enter your email..." />
 							</div>
 							<div class="grid gap-2">
-								<Label for="username">Username</Label>
-								<Input id="username" value="@shadcn" />
+								<Label for="Message">Message</Label>
+								<Textarea id="Message" placeholder="Enter your message..." />
 							</div>
-							<Button type="submit">Save changes</Button>
+							<Button type="submit" class="text-xl">Send <Send /></Button>
 						</form>
 					</Dialog.Content>
 				</Dialog.Root>
 			{:else}
 				<Drawer.Root bind:open>
 					<Drawer.Trigger asChild let:builder>
-						<Button variant="ghost" builders={[builder]} class="font-bold landscape:text-lg">Contact</Button>
+						<Button
+							id="contactTrigger"
+							variant="ghost"
+							builders={[builder]}
+							class="font-bold landscape:text-lg">Contact</Button
+						>
 					</Drawer.Trigger>
 					<Drawer.Content>
 						{#if fadeIn}
@@ -69,21 +81,21 @@
 								<Drawer.Header class="text-left">
 									<Drawer.Title>Contact</Drawer.Title>
 									<Drawer.Description>
-										Make changes to your profile here. Click save when you're done.
+										Let us know when you'd like to book your stay.
 									</Drawer.Description>
 								</Drawer.Header>
-								<form class="grid items-start gap-4 px-4">
+								<form class="grid items-start gap-4 px-6">
 									<div class="grid gap-2">
 										<Label for="email">Email</Label>
-										<Input type="email" id="email" value="shadcn@example.com" />
+										<Input type="email" id="email" placeholder="Enter your email..." />
 									</div>
 									<div class="grid gap-2">
-										<Label for="username">Username</Label>
-										<Input id="username" value="@shadcn" />
+										<Label for="Message">Message</Label>
+										<Textarea id="Message" placeholder="Enter your message..." />
 									</div>
-									<Button type="submit">Save changes</Button>
+									<Button type="submit" class="text-xl">Send <Send /></Button>
 								</form>
-								<Drawer.Footer class="pt-2">
+								<Drawer.Footer class="px-6 pt-2">
 									<Drawer.Close asChild let:builder>
 										<Button variant="outline" builders={[builder]}>Cancel</Button>
 									</Drawer.Close>

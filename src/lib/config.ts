@@ -3,7 +3,9 @@
 export const config = {
 	hilltop: {
 		src: 'hilltop',
+		avatar: false,
 		photos: 9,
+		marquee: `Awarded Paso Robles' Best Overall Home Rental, 2023 🏆`,
 		link: `https://www.google.com/maps/uv?pb=!1s0x80ecc5448b519e8d%3A0x70072d3ff127b68c!3m1!7e131!4s!5sHilltop%20365%20Vacation%20Rental%20Paso%20Robles!15sCgIgAQ&hl=en&imagekey=!1e10!2sAF1QipNW63u9kGpJb-u-4FUKldLR-jhsfyAttp0YQBWI`,
 		title: 'Hilltop 365',
 		subtitle: `Luxury Vacation Rental`,
@@ -28,11 +30,12 @@ export const config = {
 	},
 	debra: {
 		src: 'debra',
+		avatar: true,
 		photos: 9,
+		marquee: `Voted Bay Area's #1 Best Interior Designer 🏆`,
 		title: 'Debra Kay George Interiors',
 		subtitle: `Meet the designer`,
-		about: `Debra, an interior designer whose work has been recognized with numerous awards, has nurtured a passion for design and architecture since her childhood. With her extensive education and rich experience, she is now able to guide her clients on an exceptional design journey. Debra's expertise lies in space planning, whether for new construction or remodeling projects. She expertly orchestrates the entire design process, meticulously overseeing furnishing and finish selections, ultimately transforming her clients' dreams into tangible realities, creating stunning, personalized spaces that reflect their unique tastes and aspirations.
-		Since 1983, Debra has brought an ultimate level of service to her projects with her personal attention, problem solving skills, reliability, and creativity, becoming a trusted consultant. Debra is California Certified Interior Designer #0119 and continues to travel throughout the world gathering design inspiration. Trade shows, seminars and markets are also attended regularly to keep her updated on the latest in technology, trends and products. Her goal is to lead her clients through an amazing, inspiring design experience.`,
+		about: `Debra, an interior designer whose work has been recognized with numerous awards, has nurtured a passion for design and architecture since her childhood. With her extensive education and rich experience, she is now able to guide her clients on an exceptional design journey. Debra's expertise lies in space planning, whether for new construction or remodeling projects. She expertly orchestrates the entire design process, meticulously overseeing furnishing and finish selections, ultimately transforming her clients' dreams into tangible realities, creating stunning, personalized spaces that reflect their unique tastes and aspirations.`,
 		email: `debrakg@gmail.com`,
 		phone: `408-891-0573`,
 		address: `6584 Camden Ave, San Jose, CA 95120`,

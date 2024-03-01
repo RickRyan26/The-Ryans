@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+	.playfair-display-text {
+		font-family: 'Playfair Display', serif;
+		font-optical-sizing: auto;
+		font-weight: 500;
+		font-style: normal;
+	}
 	:root {
 		--background: 0 0% 100%;
 		--foreground: 222.2 84% 4.9%;
@@ -72,16 +78,22 @@
 	* {
 		@apply border-border;
 	}
-  html {
-    @apply antialiased;
-  }
+	html {
+		@apply playfair-display-text antialiased;
+	}
 	body {
 		@apply bg-background text-foreground;
 	}
 	h2 {
-		@apply mt-10 border-b pb-2 text-3xl font-semibold md:text-left text-center;
+		@apply border-b pb-2 text-center text-3xl font-bold md:text-left;
 	}
-  p {
-    @apply md:indent-6 mt-2 md:text-left text-center;
-  }
+	p {
+		@apply mt-2 text-center md:text-left md:indent-6;
+	}
+	button {
+		@apply font-sans
+	}
+	.card {
+		@apply bg-slate-50 dark:bg-slate-900;
+	}
 }
