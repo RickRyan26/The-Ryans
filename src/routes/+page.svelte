@@ -41,7 +41,7 @@
 {/if}
 
 {#if bannerHeight}
-	<div in:fade style={`margin-top:${bannerHeight}px`} class="!w-full">
+	<div in:fly={{ y: 50 }} style={`margin-top:${bannerHeight}px`} class="!w-full">
 		<SuperCard>
 			{#if data.avatar}
 				<img
@@ -73,7 +73,7 @@
 		</SuperCard>
 		<SuperCard>
 			<h2 id="details">Details</h2>
-			{#if data.quote}
+			{#if data?.quote}
 				<blockquote class="mt-6 border-l-2 pl-6">
 					{data.quote.text}
 					<cite class="mt-2 block text-right">
@@ -82,7 +82,7 @@
 				</blockquote>
 			{/if}
 			<ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-				{#each data.lists as list}
+				{#each data?.lists || [] as list}
 					<li class="font-bold">{list[0]}</li>
 					<ul class="ml-6 list-disc [&>li]:mt-2">
 						{#each list[1] as item}

@@ -26,6 +26,81 @@ export const config = {
 				quote: `This home is immaculate. Clean, spacious and beautifully decorated. Centrally located in Paso Robles and walking distance to all the great restaurants, park and theater. Sleeps 10 easily and has amazing views from the top balcony and two other balconies privately situated off of the bedrooms. All the amenities provided make it the perfect getaway for a family or friend group. 5 stars all the way.`,
 				author: `Dee D`
 			}
+		],
+		lists: [
+			[
+				'What this place offers',
+				[
+					'Bathroom',
+					'Bedroom and laundry',
+					'Entertainment',
+					'Family',
+					'Heating and cooling',
+					'Home safety',
+					'Internet and office',
+					'Kitchen and dining',
+					'Location features',
+					'Outdoor',
+					'Parking and facilities',
+					'Services'
+				]
+			],
+			['Bathroom', ['Bathtub', 'Hair dryer', 'Shampoo', 'Conditioner', 'Body soap', 'Hot water']],
+			[
+				'Bedroom and laundry',
+				[
+					'Washer',
+					'Dryer',
+					'Towels',
+					'bed sheets',
+					'soap',
+					'toilet paper',
+					'Hangers',
+					'Bed linens',
+					'Extra pillows and blankets',
+					'Room-darkening shades',
+					'Iron'
+				]
+			],
+			['Entertainment', ['Ethernet connection', 'TV']],
+			['Family', ['Baby safety gates']],
+			[
+				'Heating and cooling',
+				['Air conditioning', 'Indoor fireplace', 'Ceiling fan', 'Portable fans', 'Heating']
+			],
+			['Home safety', ['Smoke alarm', 'Carbon monoxide alarm', 'Fire extinguisher']],
+			['Internet and office', ['Wifi']],
+			[
+				'Kitchen and dining',
+				[
+					'Refrigerator',
+					'Microwave',
+					'Pots and pans, oil, salt and pepper',
+					'Dishes and silverware',
+					'Bowls, chopsticks, plates, cups, etc.',
+					'Mini fridge',
+					'Freezer',
+					'Dishwasher',
+					'Gas stove',
+					'Oven',
+					'Coffee maker: Keurig coffee machine',
+					'Baking sheet',
+					'Barbecue utensils',
+					'Grill, charcoal, bamboo skewers/iron skewers, etc.'
+				]
+			],
+			['Location features', ['Private entrance', 'Separate street or building entrance']],
+			[
+				'Outdoor',
+				[
+					'Private patio or balcony',
+					'Private backyard – Not fully fenced',
+					'An open space on the property usually covered in grass',
+					'BBQ grill'
+				]
+			],
+			['Parking and facilities', ['Free parking on premises']],
+			['Services', ['Self check-in', 'Keypad', 'Check yourself into the home with a door code']]
 		]
 	},
 	debra: {

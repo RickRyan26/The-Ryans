@@ -15,9 +15,9 @@
 	<Dialog.Header>
 		<Dialog.Title>Contact</Dialog.Title>
 		<Dialog.Description>
-			<div>{$page.data.phone}</div>
-			<div>{$page.data.email}</div>
-			<div>{$page.data.address}</div>
+			<div class="text-center">{$page.data.phone}</div>
+			<div class="text-center">{$page.data.email}</div>
+			<div class="text-center">{$page.data.address}</div>
 		</Dialog.Description>
 	</Dialog.Header>
 	<form class="grid items-start gap-4 px-6">
@@ -38,9 +38,9 @@
 	<Drawer.Header class="text-left">
 		<Drawer.Title>Contact</Drawer.Title>
 		<Drawer.Description>
-			<div>{$page.data.phone}</div>
-			<div>{$page.data.email}</div>
-			<div>{$page.data.address}</div>
+			<div class="text-center">{$page.data.phone}</div>
+			<div class="text-center">{$page.data.email}</div>
+			<div class="text-center">{$page.data.address}</div>
 		</Drawer.Description>
 	</Drawer.Header>
 	<form class="grid items-start gap-4 px-6">
