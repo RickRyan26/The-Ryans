@@ -29,7 +29,7 @@
 			<Label for="Message">Message</Label>
 			<Textarea id="Message" placeholder="Enter your message..." />
 		</div>
-		<Button type="submit" class="text-xl">Send <Send /></Button>
+		<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
 	</form>
 	<Dialog.Footer>
 		<Button variant="outline">Cancel</Button>
@@ -52,7 +52,7 @@
 			<Label for="Message">Message</Label>
 			<Textarea id="Message" placeholder="Enter your message..." />
 		</div>
-		<Button type="submit" class="text-xl">Send <Send /></Button>
+		<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
 	</form>
 	<Drawer.Footer class="px-6 pt-2">
 		<Drawer.Close asChild let:builder>
