@@ -3,13 +3,10 @@
 	import ModeToggle from '$lib/components/custom/ModeToggle.svelte';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import * as Drawer from '$lib/components/ui/drawer';
-	import { Input } from '$lib/components/ui/input';
-	import { Label } from '$lib/components/ui/label';
 	import { Button } from '$lib/components/ui/button';
-	import { Textarea } from '$lib/components/ui/Textarea';
 	import { mediaQuery } from 'svelte-legos';
 	import { fade, slide } from 'svelte/transition';
-	import { Send } from 'lucide-svelte';
+	import SuperForm from '$lib/components/custom/SuperForm.svelte';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
@@ -25,6 +22,17 @@
 	} else {
 		fadeIn = false;
 	}
+
+	function scrollTo(elementId) {
+		const element = document.getElementById(elementId);
+		if (element) {
+			const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+			window.scrollTo({
+				top: elementPosition - 100,
+				behavior: 'smooth'
+			});
+		}
+	}
 </script>
 
 <header
@@ -32,9 +40,21 @@
 >
 	<div class="mx-auto flex h-14 max-w-screen-md items-center">
 		<nav class={cn('flex items-center space-x-1 pl-2', className)}>
-			<Button variant="ghost" class="font-bold landscape:text-lg">Gallery</Button>
-			<Button variant="ghost" class="font-bold landscape:text-lg">Details</Button>
-			<Button variant="ghost" class="font-bold landscape:text-lg">Reviews</Button>
+			<Button
+				on:click={() => scrollTo('gallery')}
+				variant="ghost"
+				class="font-bold landscape:text-lg">Gallery</Button
+			>
+			<Button
+				on:click={() => scrollTo('details')}
+				variant="ghost"
+				class="font-bold landscape:text-lg">Details</Button
+			>
+			<Button
+				on:click={() => scrollTo('reviews')}
+				variant="ghost"
+				class="font-bold landscape:text-lg">Reviews</Button
+			>
 			{#if $isDesktop}
 				<Dialog.Root bind:open>
 					<Dialog.Trigger asChild let:builder>
@@ -46,23 +66,7 @@
 						>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
-						<Dialog.Header>
-							<Dialog.Title>Contact</Dialog.Title>
-							<Dialog.Description>
-								<div></div>
-							</Dialog.Description>
-						</Dialog.Header>
-						<form class="grid items-start gap-4 px-6">
-							<div class="grid gap-2">
-								<Label for="email">Email</Label>
-								<Input type="email" id="email" placeholder="Enter your email..." />
-							</div>
-							<div class="grid gap-2">
-								<Label for="Message">Message</Label>
-								<Textarea id="Message" placeholder="Enter your message..." />
-							</div>
-							<Button type="submit" class="text-xl">Send <Send /></Button>
-						</form>
+						<SuperForm isDialog={true} />
 					</Dialog.Content>
 				</Dialog.Root>
 			{:else}
@@ -78,28 +82,7 @@
 					<Drawer.Content>
 						{#if fadeIn}
 							<div in:slide>
-								<Drawer.Header class="text-left">
-									<Drawer.Title>Contact</Drawer.Title>
-									<Drawer.Description>
-										Let us know when you'd like to book your stay.
-									</Drawer.Description>
-								</Drawer.Header>
-								<form class="grid items-start gap-4 px-6">
-									<div class="grid gap-2">
-										<Label for="email">Email</Label>
-										<Input type="email" id="email" placeholder="Enter your email..." />
-									</div>
-									<div class="grid gap-2">
-										<Label for="Message">Message</Label>
-										<Textarea id="Message" placeholder="Enter your message..." />
-									</div>
-									<Button type="submit" class="text-xl">Send <Send /></Button>
-								</form>
-								<Drawer.Footer class="px-6 pt-2">
-									<Drawer.Close asChild let:builder>
-										<Button variant="outline" builders={[builder]}>Cancel</Button>
-									</Drawer.Close>
-								</Drawer.Footer>
+								<SuperForm />
 							</div>
 						{/if}
 					</Drawer.Content>
