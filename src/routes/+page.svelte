@@ -6,6 +6,8 @@
 	import SiteFooter from '$lib/components/custom/SiteFooter.svelte';
 	import { goto } from '$app/navigation';
 
+	// import debra_img_header from '$lib/images/debra/header.jpg?enhanced';
+
 	export let { data } = $$props;
 
 	let scrollY = 0;
@@ -19,6 +21,22 @@
 			contactTrigger.click();
 		}
 	};
+
+	const pictures = import.meta.glob('$lib/images/debra/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}', {
+		query: { enhanced: true }
+	});
+	console.warn('pictures:', pictures);
+
+	let headerImage = ''; // Define a reactive variable to hold the loaded image module
+
+	// Existing script content remains the same...
+
+	// Asynchronously load the header image
+	const loadHeaderImage = async () => {
+		const headerModule = await pictures['/src/lib/images/debra/header.jpg']();
+		headerImage = headerModule.default; // Assuming the image module exports the image path as default
+	};
+	loadHeaderImage(); // Call the function to load the image
 </script>
 
 <svelte:window bind:scrollY />
@@ -41,11 +59,17 @@
 		<p class="">
 			{data.about}
 		</p>
-		<img class="mx-auto mt-6 rounded-xl landscape:w-11/12" src={`${data.src}/header.jpg`} alt="" />
+		{#if headerImage}
+			<enhanced:img
+				class="mx-auto mt-6 w-full rounded-xl landscape:w-11/12"
+				src={headerImage}
+				alt=""
+			/>
+		{/if}
 	</SuperCard>
-	{#if data.avatar}
+	<!-- {#if data.avatar}
 		<SuperCard>
-			<img
+			<enhanced:img
 				src={`${data.src}/avatar.jpg`}
 				class="mx-auto mb-6 w-1/2 rounded-full shadow landscape:w-1/4"
 				alt=""
@@ -69,10 +93,10 @@
 				>
 			</a>
 		</div>
-		<div class="-mx-2 grid grid-cols-2 gap-2 pt-6 md:gap-4">
+		<div class="-mx-4 grid gap-2 pt-6 md:-mx-2 md:grid-cols-2 md:gap-4">
 			{#each data.photos as photo}
 				<div class="inline-block min-h-40 overflow-hidden">
-					<img
+					<enhanced:img
 						class="h-full w-full rounded-lg object-cover"
 						src={`${data.src}/${photo}.jpg`}
 						alt=""
@@ -80,7 +104,7 @@
 				</div>
 			{/each}
 		</div>
-	</SuperCard>
+	</SuperCard> -->
 	<SuperCard>
 		<h2 id="details">Details</h2>
 		{#if data.about2}

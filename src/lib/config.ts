@@ -3,7 +3,7 @@
 export const config = {
 	hilltop: {
 		src: 'hilltop',
-		cta: 'Book',
+		cta: 'Book Your Stay',
 		avatar: false,
 		photos: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
 		marquee: `Awarded Paso Robles' Best Overall Home Rental, 2023 🏆`,
@@ -11,6 +11,7 @@ export const config = {
 		title: 'Hilltop 365',
 		subtitle: `Luxury Vacation Rental`,
 		about: `Modern, 5 bedroom 4.5 bath professionally designed home, on 2 acres of oak trees, right above downtown with easy walkable access to restaurants, wineries and shops. 3000 sq ft home boasting 3 decks with beautiful views of downtown and the surrounding hills....in the heart of wine country.`,
+		name: 'Debra Ryan',
 		email: `hilltop365@gmail.com`,
 		phone: `408-891-0573`,
 		address: `365 Hilltop Drive, Paso Robles, CA 93446`,
@@ -115,6 +116,7 @@ export const config = {
 		subtitle: `Meet the designer`,
 		about: `Debra, an interior designer whose work has been recognized with numerous awards, has nurtured a passion for design and architecture since her childhood. With her extensive education and rich experience, she is now able to guide her clients on an exceptional design journey. Debra's expertise lies in space planning, whether for new construction or remodeling projects. She expertly orchestrates the entire design process, meticulously overseeing furnishing and finish selections, ultimately transforming her clients' dreams into tangible realities, creating stunning, personalized spaces that reflect their unique tastes and aspirations.`,
 		about2: `Since 1983, Debra has brought an ultimate level of service to her projects with her personal attention, problem solving skills, reliability, and creativity, becoming a trusted consultant. Debra is California Certified Interior Designer #0119 and continues to travel throughout the world gathering design inspiration. Trade shows, seminars and markets are also attended regularly to keep her updated on the latest in technology, trends and products. Her goal is to lead her clients through an amazing, inspiring design experience.`,
+		name: 'Debra George-Ryan',
 		email: `debrakg@gmail.com`,
 		phone: `408-891-0573`,
 		address: `6584 Camden Ave, San Jose, CA 95120`,
