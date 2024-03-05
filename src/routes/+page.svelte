@@ -6,7 +6,52 @@
 	import SiteFooter from '$lib/components/custom/SiteFooter.svelte';
 	import { goto } from '$app/navigation';
 
-	// import debra_img_header from '$lib/images/debra/header.jpg?enhanced';
+	import debra_img_avatar from '$lib/images/debra/avatar.jpg?w=1280;640;400&enhanced';
+	import debra_img_header from '$lib/images/debra/header.jpg?w=1280;640;400&enhanced';
+	import debra_img_1 from '$lib/images/debra/1.jpg?w=1280;640;400&enhanced';
+	import debra_img_2 from '$lib/images/debra/2.jpg?w=1280;640;400&enhanced';
+	import debra_img_3 from '$lib/images/debra/3.jpg?w=1280;640;400&enhanced';
+	import debra_img_4 from '$lib/images/debra/4.jpg?w=1280;640;400&enhanced';
+	import debra_img_5 from '$lib/images/debra/5.jpg?w=1280;640;400&enhanced';
+	import debra_img_6 from '$lib/images/debra/6.jpg?w=1280;640;400&enhanced';
+	import debra_img_7 from '$lib/images/debra/7.jpg?w=1280;640;400&enhanced';
+	import debra_img_8 from '$lib/images/debra/8.jpg?w=1280;640;400&enhanced';
+	import debra_img_9 from '$lib/images/debra/9.jpg?w=1280;640;400&enhanced';
+
+	import hilltop_img_header from '$lib/images/hilltop/header.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_1 from '$lib/images/hilltop/1.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_2 from '$lib/images/hilltop/2.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_3 from '$lib/images/hilltop/3.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_4 from '$lib/images/hilltop/4.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_5 from '$lib/images/hilltop/5.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_6 from '$lib/images/hilltop/6.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_7 from '$lib/images/hilltop/7.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_8 from '$lib/images/hilltop/8.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_9 from '$lib/images/hilltop/9.jpg?w=1280;640;400&enhanced';
+
+	const debraGallery = [
+		debra_img_1,
+		debra_img_2,
+		debra_img_3,
+		debra_img_4,
+		debra_img_5,
+		debra_img_6,
+		debra_img_7,
+		debra_img_8,
+		debra_img_9
+	];
+
+	const hilltopGallery = [
+		hilltop_img_1,
+		hilltop_img_2,
+		hilltop_img_3,
+		hilltop_img_4,
+		hilltop_img_5,
+		hilltop_img_6,
+		hilltop_img_7,
+		hilltop_img_8,
+		hilltop_img_9
+	];
 
 	export let { data } = $$props;
 
@@ -21,22 +66,6 @@
 			contactTrigger.click();
 		}
 	};
-
-	const pictures = import.meta.glob('$lib/images/debra/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}', {
-		query: { enhanced: true }
-	});
-	console.warn('pictures:', pictures);
-
-	let headerImage = ''; // Define a reactive variable to hold the loaded image module
-
-	// Existing script content remains the same...
-
-	// Asynchronously load the header image
-	const loadHeaderImage = async () => {
-		const headerModule = await pictures['/src/lib/images/debra/header.jpg']();
-		headerImage = headerModule.default; // Assuming the image module exports the image path as default
-	};
-	loadHeaderImage(); // Call the function to load the image
 </script>
 
 <svelte:window bind:scrollY />
@@ -59,19 +88,30 @@
 		<p class="">
 			{data.about}
 		</p>
-		{#if headerImage}
+		{#if data.src === 'debra'}
 			<enhanced:img
+				loading="eager"
 				class="mx-auto mt-6 w-full rounded-xl landscape:w-11/12"
-				src={headerImage}
+				src={debra_img_header}
+				sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
+				alt=""
+			/>
+		{:else}
+			<enhanced:img
+				loading="eager"
+				class="mx-auto mt-6 w-full rounded-xl landscape:w-11/12"
+				src={hilltop_img_header}
+				sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 				alt=""
 			/>
 		{/if}
 	</SuperCard>
-	<!-- {#if data.avatar}
+	{#if data.avatar}
 		<SuperCard>
 			<enhanced:img
-				src={`${data.src}/avatar.jpg`}
+				src={debra_img_avatar}
 				class="mx-auto mb-6 w-1/2 rounded-full shadow landscape:w-1/4"
+				sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 				alt=""
 			/>
 			{#if data?.quote}
@@ -94,17 +134,31 @@
 			</a>
 		</div>
 		<div class="-mx-4 grid gap-2 pt-6 md:-mx-2 md:grid-cols-2 md:gap-4">
-			{#each data.photos as photo}
-				<div class="inline-block min-h-40 overflow-hidden">
-					<enhanced:img
-						class="h-full w-full rounded-lg object-cover"
-						src={`${data.src}/${photo}.jpg`}
-						alt=""
-					/>
-				</div>
-			{/each}
+			{#if data.src === 'debra'}
+				{#each debraGallery as photo}
+					<div class="inline-block min-h-40 overflow-hidden">
+						<enhanced:img
+							class="h-full w-full rounded-lg object-cover"
+							src={photo}
+							alt=""
+							sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
+						/>
+					</div>
+				{/each}
+			{:else}
+				{#each hilltopGallery as photo}
+					<div class="inline-block min-h-40 overflow-hidden">
+						<enhanced:img
+							class="h-full w-full rounded-lg object-cover"
+							src={photo}
+							alt=""
+							sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
+						/>
+					</div>
+				{/each}
+			{/if}
 		</div>
-	</SuperCard> -->
+	</SuperCard>
 	<SuperCard>
 		<h2 id="details">Details</h2>
 		{#if data.about2}

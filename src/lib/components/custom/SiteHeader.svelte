@@ -60,7 +60,7 @@
 				<Dialog.Root bind:open>
 					<Dialog.Trigger asChild let:builder>
 						<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
-							>{$page.data.cta}</Button
+							>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 						>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
@@ -71,7 +71,7 @@
 				<Drawer.Root bind:open>
 					<Drawer.Trigger asChild let:builder>
 						<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
-							>Contact</Button
+							>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 						>
 					</Drawer.Trigger>
 					<Drawer.Content>
