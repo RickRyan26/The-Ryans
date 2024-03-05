@@ -16,9 +16,19 @@
 		<h1>{$page.data.cta}</h1>
 		<Dialog.Description>
 			<div class="text-center text-xl font-bold">{$page.data.name}</div>
-			<div class="text-center text-xl">{$page.data.phone}</div>
-			<div class="text-center text-xl">{$page.data.email}</div>
-			<div class="text-center text-xl">{$page.data.address}</div>
+			<div class="text-center text-xl">
+				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>
+			</div>
+			<div class="text-center text-xl">
+				<a class="underline" href="mailto:{$page.data.email}">{$page.data.email}</a>
+			</div>
+			<div class="text-center text-xl">
+				<a
+					class="underline"
+					href="https://maps.google.com/?q={encodeURIComponent($page.data.address)}"
+					>{$page.data.address}</a
+				>
+			</div>
 		</Dialog.Description>
 	</Dialog.Header>
 	<form class="grid items-start gap-4 px-4 md:px-2">
@@ -41,7 +51,7 @@
 			/>
 		</div>
 		<Dialog.Footer>
-			<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
+			<Button type="submit" class="rounded-full text-2xl font-bold">Send&nbsp;<Send /></Button>
 		</Dialog.Footer>
 	</form>
 	<!-- <Button variant="outline">Cancel</Button> -->
@@ -50,9 +60,19 @@
 		<h1>{$page.data.cta}</h1>
 		<Drawer.Description>
 			<div class="text-center text-xl font-bold">{$page.data.name}</div>
-			<div class="text-center text-xl">{$page.data.phone}</div>
-			<div class="text-center text-xl">{$page.data.email}</div>
-			<div class="text-center text-xl">{$page.data.address}</div>
+			<div class="text-center text-xl">
+				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>
+			</div>
+			<div class="text-center text-xl">
+				<a class="underline" href="mailto:{$page.data.email}">{$page.data.email}</a>
+			</div>
+			<div class="text-center text-xl">
+				<a
+					class="underline"
+					href="https://maps.google.com/?q={encodeURIComponent($page.data.address)}"
+					>{$page.data.address}</a
+				>
+			</div>
 		</Drawer.Description>
 	</Drawer.Header>
 	<form class="grid items-start gap-4 px-4 md:px-2">
@@ -75,7 +95,7 @@
 			/>
 		</div>
 		<Drawer.Footer class="px-6 pt-2">
-			<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
+			<Button type="submit" class="rounded-full text-2xl  font-bold">Send &nbsp;<Send /></Button>
 		</Drawer.Footer>
 	</form>
 	<!-- <Drawer.Close asChild let:builder>

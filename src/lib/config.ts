@@ -2,11 +2,12 @@
 
 export const config = {
 	hilltop: {
+		favicon: '🍷',
 		src: 'hilltop',
 		cta: 'Book Your Stay',
 		avatar: false,
 		photos: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
-		marquee: `Awarded Paso Robles' Best Overall Home Rental, 2023 🏆`,
+		marquee: `Awarded Paso Robles' Best Overall Vacation Rental, 2023 🏆`,
 		link: `https://www.google.com/maps/uv?pb=!1s0x80ecc5448b519e8d%3A0x70072d3ff127b68c!3m1!7e131!4s!5sHilltop%20365%20Vacation%20Rental%20Paso%20Robles!15sCgIgAQ&hl=en&imagekey=!1e10!2sAF1QipNW63u9kGpJb-u-4FUKldLR-jhsfyAttp0YQBWI`,
 		title: 'Hilltop 365',
 		subtitle: `Luxury Vacation Rental`,
@@ -106,6 +107,7 @@ export const config = {
 		]
 	},
 	debra: {
+		favicon: '🏆',
 		gallery: 'https://photos.app.goo.gl/mXNvF9hJuLdHec9p7',
 		cta: 'Contact Me',
 		src: 'debra',

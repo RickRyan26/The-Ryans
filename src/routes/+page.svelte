@@ -158,6 +158,13 @@
 				{/each}
 			{/if}
 		</div>
+		<div class="mt-6 flex justify-center">
+			<a href={data.gallery} target="_blank">
+				<Button class="rounded-full px-8 py-6 text-xl font-bold transition-all active:scale-95"
+					>View Full Gallery</Button
+				>
+			</a>
+		</div>
 	</SuperCard>
 	<SuperCard>
 		<h2 id="details">Details</h2>
@@ -168,7 +175,7 @@
 		{/if}
 		<ul class="my-6 ml-6 list-disc [&>li]:mt-2">
 			{#each data?.lists || [] as list}
-				<li class="font-bold">{list[0]}</li>
+				<li class="playfair-display-text text-xl font-bold">{list[0]}</li>
 				<ul class="ml-6 list-disc [&>li]:mt-2">
 					{#each list[1] as item}
 						<li>{item}</li>

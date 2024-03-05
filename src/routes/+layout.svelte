@@ -4,8 +4,10 @@
 	import SiteHeader from '$lib/components/custom/SiteHeader.svelte';
 	import TailwindIndicator from '$lib/components/custom/TailwindIndicator.svelte';
 	import { page } from '$app/stores';
+	import MetaData from '$lib/components/custom/MetaData.svelte';
 </script>
 
+<MetaData />
 <div
 	class:!from-slate-200={$page.data.src === 'debra'}
 	class:!to-slate-500={$page.data.src === 'debra'}
