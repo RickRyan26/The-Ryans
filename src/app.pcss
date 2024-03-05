@@ -79,21 +79,21 @@
 		@apply border-border;
 	}
 	html {
-		@apply playfair-display-text antialiased;
+		@apply antialiased;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply overflow-x-hidden bg-background text-foreground;
+	}
+	h1 {
+		@apply playfair-display-text py-6 text-center text-4xl font-extrabold lg:text-5xl;
 	}
 	h2 {
-		@apply border-b pb-2 text-center text-3xl font-bold md:text-left;
+		@apply playfair-display-text mb-4 border-b pb-2 text-center text-3xl font-bold uppercase;
 	}
 	p {
 		@apply mt-2 text-center md:text-left md:indent-6;
 	}
-	button {
-		@apply font-sans
-	}
 	.card {
-		@apply bg-slate-50 dark:bg-slate-900;
+		@apply bg-slate-50/80 shadow-lg dark:bg-slate-900/90;
 	}
 }

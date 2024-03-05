@@ -13,50 +13,50 @@
 
 {#if isDialog}
 	<Dialog.Header>
-		<Dialog.Title>Contact</Dialog.Title>
+		<h2>Contact</h2>
 		<Dialog.Description>
-			<div class="text-center">{$page.data.phone}</div>
-			<div class="text-center">{$page.data.email}</div>
-			<div class="text-center">{$page.data.address}</div>
+			<div class="text-center text-xl">{$page.data.phone}</div>
+			<div class="text-center text-xl">{$page.data.email}</div>
+			<div class="text-center text-xl">{$page.data.address}</div>
 		</Dialog.Description>
 	</Dialog.Header>
 	<form class="grid items-start gap-4 px-6">
 		<div class="grid gap-2">
-			<Label for="email">Email</Label>
-			<Input type="email" id="email" placeholder="Enter your email..." />
+			<Label for="email" class="text-lg">Email</Label>
+			<Input type="email" id="email" class="text-lg" placeholder="Enter your email..." />
 		</div>
 		<div class="grid gap-2">
-			<Label for="Message">Message</Label>
-			<Textarea id="Message" placeholder="Enter your message..." />
+			<Label for="Message" class="text-lg">Message</Label>
+			<Textarea rows={6} id="Message" class="text-lg" placeholder="Enter your message..." />
 		</div>
-		<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
+		<Dialog.Footer>
+			<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
+		</Dialog.Footer>
 	</form>
-	<Dialog.Footer>
-		<Button variant="outline">Cancel</Button>
-	</Dialog.Footer>
+	<!-- <Button variant="outline">Cancel</Button> -->
 {:else}
 	<Drawer.Header class="text-left">
-		<Drawer.Title>Contact</Drawer.Title>
+		<h2>Contact</h2>
 		<Drawer.Description>
-			<div class="text-center">{$page.data.phone}</div>
-			<div class="text-center">{$page.data.email}</div>
-			<div class="text-center">{$page.data.address}</div>
+			<div class="text-center text-xl">{$page.data.phone}</div>
+			<div class="text-center text-xl">{$page.data.email}</div>
+			<div class="text-center text-xl">{$page.data.address}</div>
 		</Drawer.Description>
 	</Drawer.Header>
 	<form class="grid items-start gap-4 px-6">
 		<div class="grid gap-2">
-			<Label for="email">Email</Label>
-			<Input type="email" id="email" placeholder="Enter your email..." />
+			<Label for="email" class="text-lg">Email</Label>
+			<Input type="email" id="email" class="text-lg" placeholder="Enter your email..." />
 		</div>
 		<div class="grid gap-2">
-			<Label for="Message">Message</Label>
-			<Textarea id="Message" placeholder="Enter your message..." />
+			<Label for="Message" class="text-lg">Message</Label>
+			<Textarea rows={6} id="Message" class="text-lg" placeholder="Enter your message..." />
 		</div>
-		<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
+		<Drawer.Footer class="px-6 pt-2">
+			<Button type="submit" class="text-xl">Send <Send class="pl-1" /></Button>
+		</Drawer.Footer>
 	</form>
-	<Drawer.Footer class="px-6 pt-2">
-		<Drawer.Close asChild let:builder>
+	<!-- <Drawer.Close asChild let:builder>
 			<Button variant="outline" builders={[builder]}>Cancel</Button>
-		</Drawer.Close>
-	</Drawer.Footer>
+		</Drawer.Close> -->
 {/if}

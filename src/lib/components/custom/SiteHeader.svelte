@@ -7,6 +7,7 @@
 	import { mediaQuery } from 'svelte-legos';
 	import { fade, slide } from 'svelte/transition';
 	import SuperForm from '$lib/components/custom/SuperForm.svelte';
+	import { page } from '$app/stores';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
@@ -36,7 +37,7 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60"
+	class="sticky top-0 z-50 w-full overflow-x-hidden border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60 portrait:rounded-b-xl"
 >
 	<div class="mx-auto flex h-14 max-w-screen-md items-center">
 		<nav class={cn('flex items-center space-x-1 pl-2', className)}>
@@ -58,11 +59,8 @@
 			{#if $isDesktop}
 				<Dialog.Root bind:open>
 					<Dialog.Trigger asChild let:builder>
-						<Button
-							id="contactTrigger"
-							variant="ghost"
-							builders={[builder]}
-							class="font-bold landscape:text-lg">Contact</Button
+						<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
+							>{$page.data.cta}</Button
 						>
 					</Dialog.Trigger>
 					<Dialog.Content class="sm:max-w-[425px]">
@@ -72,11 +70,8 @@
 			{:else}
 				<Drawer.Root bind:open>
 					<Drawer.Trigger asChild let:builder>
-						<Button
-							id="contactTrigger"
-							variant="ghost"
-							builders={[builder]}
-							class="font-bold landscape:text-lg">Contact</Button
+						<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
+							>Contact</Button
 						>
 					</Drawer.Trigger>
 					<Drawer.Content>
