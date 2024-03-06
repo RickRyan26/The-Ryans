@@ -5,9 +5,10 @@
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { Button } from '$lib/components/ui/button';
 	import { mediaQuery } from 'svelte-legos';
-	import { fade, slide } from 'svelte/transition';
+	import { fade, slide, fly } from 'svelte/transition';
 	import SuperForm from '$lib/components/custom/SuperForm.svelte';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	let className: string | undefined | null = undefined;
 	export { className as class };
@@ -34,63 +35,72 @@
 			});
 		}
 	}
+	let isMounted = false;
+	onMount(() => {
+		isMounted = true;
+	});
 </script>
 
-<header
-	class="sticky top-0 z-50 w-full overflow-x-hidden border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60 portrait:rounded-b-xl"
->
-	<div class="mx-auto flex h-14 max-w-screen-md items-center">
-		<nav class={cn('flex items-center space-x-1 pl-2', className)}>
-			<Button
-				on:click={() => scrollTo('gallery')}
-				variant="ghost"
-				class="font-bold landscape:text-lg">Gallery</Button
-			>
-			<Button
-				on:click={() => scrollTo('details')}
-				variant="ghost"
-				class="font-bold landscape:text-lg">Details</Button
-			>
-			<Button
-				on:click={() => scrollTo('reviews')}
-				variant="ghost"
-				class="font-bold landscape:text-lg">Reviews</Button
-			>
-			{#if $isDesktop}
-				<Dialog.Root bind:open>
-					<Dialog.Trigger asChild let:builder>
-						<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
-							>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
-						>
-					</Dialog.Trigger>
-					<Dialog.Content class="sm:max-w-[425px]">
-						<SuperForm isDialog={true} />
-					</Dialog.Content>
-				</Dialog.Root>
-			{:else}
-				<Drawer.Root bind:open>
-					<Drawer.Trigger asChild let:builder>
-						<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
-							>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
-						>
-					</Drawer.Trigger>
-					<Drawer.Content>
-						{#if fadeIn}
-							<div in:slide>
-								<SuperForm />
-							</div>
-						{/if}
-					</Drawer.Content>
-				</Drawer.Root>
-			{/if}
-		</nav>
-		<!-- <MobileNav /> -->
-		<div class="flex flex-1 items-center justify-end space-x-2 pr-4">
-			<!-- <div class="w-full flex-1 md:w-auto md:flex-none">
+<header class="sticky top-0 z-50 h-20 w-full overflow-x-hidden">
+	{#if isMounted}
+		<div
+			class="border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60 portrait:rounded-b-xl"
+			in:fly={{ y: -30 }}
+		>
+			<div class="mx-auto flex h-14 max-w-screen-md items-center">
+				<nav class={cn('flex items-center space-x-1 pl-2', className)}>
+					<Button
+						on:click={() => scrollTo('gallery')}
+						variant="ghost"
+						class="font-bold landscape:text-lg">Gallery</Button
+					>
+					<Button
+						on:click={() => scrollTo('details')}
+						variant="ghost"
+						class="font-bold landscape:text-lg">Details</Button
+					>
+					<Button
+						on:click={() => scrollTo('reviews')}
+						variant="ghost"
+						class="font-bold landscape:text-lg">Reviews</Button
+					>
+					{#if $isDesktop}
+						<Dialog.Root bind:open>
+							<Dialog.Trigger asChild let:builder>
+								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
+									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
+								>
+							</Dialog.Trigger>
+							<Dialog.Content class="sm:max-w-[425px]">
+								<div in:fade>
+									<SuperForm isDialog={true} />
+								</div>
+							</Dialog.Content>
+						</Dialog.Root>
+					{:else}
+						<Drawer.Root bind:open>
+							<Drawer.Trigger asChild let:builder>
+								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
+									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
+								>
+							</Drawer.Trigger>
+							<Drawer.Content>
+								{#if fadeIn}
+									<div in:slide>
+										<SuperForm />
+									</div>
+								{/if}
+							</Drawer.Content>
+						</Drawer.Root>
+					{/if}
+				</nav>
+				<!-- <MobileNav /> -->
+				<div class="flex flex-1 items-center justify-end space-x-2 pr-4">
+					<!-- <div class="w-full flex-1 md:w-auto md:flex-none">
 				<CommandMenu />
 			</div> -->
-			<nav class="flex items-center">
-				<!-- <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
+					<nav class="flex items-center">
+						<!-- <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
 					<div
 						class={cn(
 							buttonVariants({
@@ -118,8 +128,10 @@
 						<span class="sr-only">X (formerly known as Twitter)</span>
 					</div>
 				</a> -->
-				<ModeToggle />
-			</nav>
+						<ModeToggle />
+					</nav>
+				</div>
+			</div>
 		</div>
-	</div>
+	{/if}
 </header>

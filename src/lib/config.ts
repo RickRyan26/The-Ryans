@@ -8,7 +8,7 @@ export const config = {
 		avatar: false,
 		photos: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
 		marquee: `Awarded Paso Robles' Best Overall Vacation Rental, 2023 🏆`,
-		link: `https://www.google.com/maps/uv?pb=!1s0x80ecc5448b519e8d%3A0x70072d3ff127b68c!3m1!7e131!4s!5sHilltop%20365%20Vacation%20Rental%20Paso%20Robles!15sCgIgAQ&hl=en&imagekey=!1e10!2sAF1QipNW63u9kGpJb-u-4FUKldLR-jhsfyAttp0YQBWI`,
+		gallery: `https://www.google.com/maps/uv?pb=!1s0x80ecc5448b519e8d%3A0x70072d3ff127b68c!3m1!7e131!4s!5sHilltop%20365%20Vacation%20Rental%20Paso%20Robles!15sCgIgAQ&hl=en&imagekey=!1e10!2sAF1QipNW63u9kGpJb-u-4FUKldLR-jhsfyAttp0YQBWI`,
 		title: 'Hilltop 365',
 		subtitle: `Luxury Vacation Rental`,
 		about: `Modern, 5 bedroom 4.5 bath professionally designed home, on 2 acres of oak trees, right above downtown with easy walkable access to restaurants, wineries and shops. 3000 sq ft home boasting 3 decks with beautiful views of downtown and the surrounding hills....in the heart of wine country.`,

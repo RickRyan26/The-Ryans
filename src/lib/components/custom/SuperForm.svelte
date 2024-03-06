@@ -17,7 +17,7 @@
 		<Dialog.Description>
 			<div class="text-center text-xl font-bold">{$page.data.name}</div>
 			<div class="text-center text-xl">
-				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>
+				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>	
 			</div>
 			<div class="text-center text-xl">
 				<a class="underline" href="mailto:{$page.data.email}">{$page.data.email}</a>
@@ -31,7 +31,7 @@
 			</div>
 		</Dialog.Description>
 	</Dialog.Header>
-	<form class="grid items-start gap-4 px-4 md:px-2">
+	<form class="grid items-start gap-4 px-4 md:px-2 mt-4">
 		<div class="grid gap-2">
 			<Label for="email" class="text-lg">Email</Label>
 			<Input
@@ -75,7 +75,7 @@
 			</div>
 		</Drawer.Description>
 	</Drawer.Header>
-	<form class="grid items-start gap-4 px-4 md:px-2">
+	<form class="grid items-start gap-4 px-4 md:px-2 mt-4">
 		<div class="grid gap-2">
 			<Label for="email" class="text-lg">Email</Label>
 			<Input

@@ -16,7 +16,7 @@
 	}
 </script>
 
-<IntersectionObserver element={node} bind:intersecting>
+<IntersectionObserver element={node} bind:intersecting threshold={1}>
 	<footer bind:this={node} class="card mt-12 block bg-opacity-50 py-6 shadow-lg backdrop-blur-sm">
 		<p class="text-center text-sm leading-loose text-muted-foreground">
 			© {currentYear}
