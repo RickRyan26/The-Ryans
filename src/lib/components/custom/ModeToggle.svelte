@@ -6,7 +6,7 @@
 	import { toggleMode } from 'mode-watcher';
 </script>
 
-<ModeWatcher />
+<ModeWatcher defaultMode={'dark'} />
 
 <Button on:click={toggleMode} variant="outline" size="icon" class="transition-all active:scale-95">
 	<Sun

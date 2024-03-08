@@ -50,24 +50,24 @@
 			<div class="mx-auto flex h-14 max-w-screen-md items-center">
 				<nav class={cn('flex items-center space-x-1 pl-2', className)}>
 					<Button
-						on:click={() => scrollTo('gallery')}
+						on:click={() => scrollTo('portfolio')}
 						variant="ghost"
-						class="font-bold landscape:text-lg">Gallery</Button
+						class="font-bold landscape:text-lg portrait:!px-2.5">Portfolio</Button
 					>
 					<Button
-						on:click={() => scrollTo('details')}
+						on:click={() => scrollTo('services')}
 						variant="ghost"
-						class="font-bold landscape:text-lg">Details</Button
+						class="font-bold landscape:text-lg portrait:!px-2.5">Services</Button
 					>
 					<Button
 						on:click={() => scrollTo('reviews')}
 						variant="ghost"
-						class="font-bold landscape:text-lg">Reviews</Button
+						class="font-bold landscape:text-lg portrait:!px-2.5">Reviews</Button
 					>
 					{#if $isDesktop}
 						<Dialog.Root bind:open>
 							<Dialog.Trigger asChild let:builder>
-								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
+								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg portrait:!px-2.5"
 									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 								>
 							</Dialog.Trigger>
@@ -80,7 +80,7 @@
 					{:else}
 						<Drawer.Root bind:open>
 							<Drawer.Trigger asChild let:builder>
-								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg"
+								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg portrait:!px-2.5"
 									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 								>
 							</Drawer.Trigger>

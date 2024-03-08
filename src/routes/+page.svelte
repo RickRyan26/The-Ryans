@@ -1,12 +1,10 @@
 <script lang="ts">
-	import SuperCard from '$lib/components/custom/SuperCard.svelte';
+	import Section from '$lib/components/custom/Section.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Quote from '$lib/components/custom/Quote.svelte';
 	import Image from '$lib/components/custom/Image.svelte';
 	import { onMount } from 'svelte';
 
-	import debra_img_avatar from '$lib/images/debra/avatar.jpg?w=1280;640;400&enhanced';
-	import debra_img_header from '$lib/images/debra/header.jpg?w=1280;640;400&enhanced';
 	import debra_img_1 from '$lib/images/debra/1.jpg?w=1280;640;400&enhanced';
 	import debra_img_2 from '$lib/images/debra/2.jpg?w=1280;640;400&enhanced';
 	import debra_img_3 from '$lib/images/debra/3.jpg?w=1280;640;400&enhanced';
@@ -17,7 +15,6 @@
 	import debra_img_8 from '$lib/images/debra/8.jpg?w=1280;640;400&enhanced';
 	import debra_img_9 from '$lib/images/debra/9.jpg?w=1280;640;400&enhanced';
 
-	import hilltop_img_header from '$lib/images/hilltop/header.jpg?w=1280;640;400&enhanced';
 	import hilltop_img_1 from '$lib/images/hilltop/1.jpg?w=1280;640;400&enhanced';
 	import hilltop_img_2 from '$lib/images/hilltop/2.jpg?w=1280;640;400&enhanced';
 	import hilltop_img_3 from '$lib/images/hilltop/3.jpg?w=1280;640;400&enhanced';
@@ -28,7 +25,7 @@
 	import hilltop_img_8 from '$lib/images/hilltop/8.jpg?w=1280;640;400&enhanced';
 	import hilltop_img_9 from '$lib/images/hilltop/9.jpg?w=1280;640;400&enhanced';
 
-	const debraGallery = [
+	const debraPortfolio = [
 		debra_img_1,
 		debra_img_2,
 		debra_img_3,
@@ -40,7 +37,7 @@
 		debra_img_9
 	];
 
-	const hilltopGallery = [
+	const hilltopPortfolio = [
 		hilltop_img_1,
 		hilltop_img_2,
 		hilltop_img_3,
@@ -83,79 +80,32 @@
 </script>
 
 <svelte:window bind:scrollY />
-<div class="mx-auto -mt-6 max-w-screen-md portrait:mx-2">
-	<SuperCard>
-		<!-- svelte-ignore a11y-distracting-elements -->
-		<marquee
-			class:!bg-slate-300={data.src === 'debra'}
-			class:dark:!bg-slate-700={data.src === 'debra'}
-			class="-mx-14 rounded-sm bg-purple-300 py-2 font-sans text-xl font-extrabold text-black/80 shadow-sm dark:bg-purple-700 dark:text-white/80 portrait:-mx-9"
-		>
-			{data.marquee}
-		</marquee>
-		<h1>
-			{data.title}
-		</h1>
-		<h2>
-			{data.subtitle}
-		</h2>
-		<!-- <div class="relative">
-			<p bind:this={aboutEl} class="absolute top-0 z-10 text-left indent-6"></p>
-			<p class="invisible">{data.about}</p>
-		</div> -->
-		<Image>
+<div class="">
+	{#if data?.quote}
+		<Section isTop={true}>
+			<h2 class="mt-6">{data.quote.title}</h2>
 			<p>{data.about}</p>
-			{#if data.src === 'debra'}
-				<enhanced:img
-					loading="eager"
-					class="mx-auto mt-6 w-full rounded-xl landscape:w-11/12"
-					src={debra_img_header}
-					sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
-					alt=""
-				/>
-			{:else}
-				<enhanced:img
-					loading="eager"
-					class="mx-auto mt-6 w-full rounded-xl landscape:w-11/12"
-					src={hilltop_img_header}
-					sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
-					alt=""
-				/>
-			{/if}
-		</Image>
-	</SuperCard>
-	{#if data.avatar}
-		<SuperCard>
-			<enhanced:img
-				src={debra_img_avatar}
-				class="mx-auto mb-6 w-1/2 rounded-full border-4 border-slate-500/50 shadow landscape:w-1/4"
-				sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
-				alt=""
-			/>
-			{#if data?.quote}
-				<Quote>
-					<blockquote class="mt-6 border-l-2 pl-6">
-						{data.quote.text}
-						<cite class="mt-2 block text-right">
-							- {data.quote.author}
-						</cite>
-					</blockquote>
-				</Quote>
-			{/if}
-		</SuperCard>
+			<Quote>
+				<blockquote class="mt-6 border-l-2 pl-6">
+					{data.quote.text}
+					<cite class="mt-2 block text-right">
+						- {data.quote.author}
+					</cite>
+				</blockquote>
+			</Quote>
+		</Section>
 	{/if}
-	<SuperCard>
-		<h2 id="gallery" class="mt-6">Gallery</h2>
+	<Section isTop={!data?.quote}>
 		<div class="mt-6 flex justify-center">
-			<a href={data.gallery} target="_blank">
+			<a href={data.portfolio} target="_blank">
 				<Button class="rounded-full px-8 py-6 text-xl font-bold transition-all active:scale-95"
-					>View Full Gallery</Button
+					>View Full Portfolio</Button
 				>
 			</a>
 		</div>
-		<div class="-mx-4 grid gap-2 pt-6 md:-mx-2 md:grid-cols-2 md:gap-4">
+		<div class="-mx-4 grid gap-2 pt-6 md:-mx-2 md:grid-cols-3 md:gap-4">
 			{#if data.src === 'debra'}
-				{#each debraGallery as photo}
+				{#each debraPortfolio as photo}
 					<Image>
 						<div class="inline-block min-h-40 overflow-hidden">
 							<enhanced:img
@@ -168,7 +118,7 @@
 					</Image>
 				{/each}
 			{:else}
-				{#each hilltopGallery as photo}
+				{#each hilltopPortfolio as photo}
 					<Image>
 						<div class="inline-block min-h-40 overflow-hidden">
 							<enhanced:img
@@ -183,26 +133,26 @@
 			{/if}
 		</div>
 		<div class="mt-6 flex justify-center">
-			<a href={data.gallery} target="_blank">
+			<a href={data.portfolio} target="_blank">
 				<Button class="rounded-full px-8 py-6 text-xl font-bold transition-all active:scale-95"
-					>View Full Gallery</Button
+					>View Full Portfolio</Button
 				>
 			</a>
 		</div>
-	</SuperCard>
-	<SuperCard>
+	</Section>
+	<Section>
 		<Image>
-			<h2 id="details">Details</h2>
+			<h2 id="services">Services</h2>
 			{#if data.about2}
 				<p>
 					{data.about2}
 				</p>
 			{/if}
 		</Image>
-		<ul class="my-6 ml-6 list-disc [&>li]:mt-2">
+		<ul class="mx-auto my-6 max-w-screen-sm">
 			{#each data?.lists || [] as list}
 				<Image>
-					<li class="playfair-display-text text-xl font-bold">{list[0]}</li>
+					<li class="playfair-display-text mt-8 text-2xl font-bold">{list[0]}</li>
 					<ul class="ml-6 list-disc [&>li]:mt-2">
 						{#each list[1] as item}
 							<li>{item}</li>
@@ -211,16 +161,13 @@
 				</Image>
 			{/each}
 		</ul>
-	</SuperCard>
-	<SuperCard>
+	</Section>
+	<Section>
 		<h2 id="reviews">Reviews</h2>
 		{#each data.reviews as review}
 			<Quote>
-				<div class="-mx-4 mt-6">
-					<blockquote
-						class:border-slate-500={data.src === 'debra'}
-						class="mt-6 border-l-2 border-purple-500/50 pl-6"
-					>
+				<div class="mx-auto mt-6 max-w-screen-md">
+					<blockquote class:border-neutral-500={data.src === 'debra'} class="mt-6 border-l-2 pl-6">
 						⭐⭐⭐⭐⭐
 						<br />
 						{review.quote}
@@ -231,7 +178,7 @@
 				</div>
 			</Quote>
 		{/each}
-	</SuperCard>
+	</Section>
 	<div class="mb-16 flex justify-center">
 		<Button
 			on:click={contactTrigger}
