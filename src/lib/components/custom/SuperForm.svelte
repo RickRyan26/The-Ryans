@@ -13,7 +13,7 @@
 
 {#if isDialog}
 	<Dialog.Header>
-		<h1 class="py-2">{$page.data.cta}</h1>
+		<h2 class="py-2">{$page.data.cta}</h2>
 		<Dialog.Description>
 			<div class="text-center text-xl font-bold">{$page.data.name}</div>
 			<div class="text-center text-xl">
@@ -57,7 +57,7 @@
 	<!-- <Button variant="outline">Cancel</Button> -->
 {:else}
 	<Drawer.Header class="text-left">
-		<h1 class="py-2">{$page.data.cta}</h1>
+		<h2 class="py-2">{$page.data.cta}</h2>
 		<Drawer.Description>
 			<div class="text-center text-xl font-bold">{$page.data.name}</div>
 			<div class="text-center text-xl">

@@ -20,15 +20,16 @@
 	class="bg-gradient-to-br from-violet-200 to-violet-500 transition-all dark:from-violet-400 dark:to-violet-900"
 >
 	<SiteHeader />
-	<div class="fixed top-0 portrait:w-[200vw]">
+	<div class="fixed top-0 inset-0 portrait:w-[200vw]">
 		{#if $page.data.src === 'debra'}
-			<enhanced:img loading="eager" class="mx-auto w-full" src={debra_img_header} alt="" />
+			<enhanced:img loading="eager" class="mx-auto w-full h-full object-cover" src={debra_img_header} alt="" />
 		{:else}
-			<enhanced:img loading="eager" class="mx-auto w-full" src={hilltop_img_header} alt="" />
+			<enhanced:img loading="eager" class="mx-auto w-full h-full object-cover" src={hilltop_img_header} alt="" />
 		{/if}
 	</div>
-	<div class="relative flex min-h-screen flex-col" id="page" data-vaul-drawer-wrapper>
-		<div class="mx-auto -mt-6 max-w-screen-md portrait:mx-2">
+	<!-- data-vaul-drawer-wrapper -->
+	<div class="relative flex min-h-screen flex-col" id="page">
+		<div class="mx-auto my-16 portrait:my-10 max-w-screen-md portrait:mx-2">
 			<!-- <SuperCard> -->
 			<!-- <marquee
 				class:!bg-neutral-300={data.src === 'debra'}
@@ -46,7 +47,7 @@
 			{#if $page.data.avatar}
 				<enhanced:img
 					src={debra_img_avatar}
-					class="mx-auto mb-6 w-1/2 rounded border-2 border-neutral-500/50 shadow landscape:w-1/4"
+					class="mx-auto mt-6 w-2/3 rounded-lg border-2 border-neutral-500/50 shadow landscape:w-2/5"
 					sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 					alt=""
 				/>

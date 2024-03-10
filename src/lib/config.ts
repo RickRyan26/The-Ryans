@@ -16,6 +16,9 @@ export const config = {
 		email: `hilltop365@gmail.com`,
 		phone: `408-891-0573`,
 		address: `365 Hilltop Drive, Paso Robles, CA 93446`,
+		quote: {
+			title: `Luxury Vacation Rental`
+		},
 		reviews: [
 			{
 				quote: `This house has some of the BEST views in Paso. It's bright and airy and radiant. Each room has a different "theme" and is decorated extremely tastefully. The linens and towels are clean and fresh. You feel at home here. The architectural design of the space feels open and welcoming and gives you this sense of instant-calm, upon entering. You just want to throw your shoes off and head to the balcony for a nice glass of wine and a sundown-view. Love this place!`,

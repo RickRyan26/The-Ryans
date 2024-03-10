@@ -81,22 +81,22 @@
 
 <svelte:window bind:scrollY />
 <div class="">
-	{#if data?.quote}
-		<Section isTop={true}>
-			<h2 class="mt-6">{data.quote.title}</h2>
-			<p>{data.about}</p>
-			<Quote>
-				<blockquote class="mt-6 border-l-2 pl-6">
+	<Section isTop={true}>
+		<h2 class="mt-6">{data.quote.title}</h2>
+		<p>{data.about}</p>
+		{#if data?.quote?.text}
+			<Image>
+				<blockquote class="mx-auto mt-10 max-w-screen-md border-l-2 pl-6">
 					{data.quote.text}
 					<cite class="mt-2 block text-right">
 						- {data.quote.author}
 					</cite>
 				</blockquote>
-			</Quote>
-		</Section>
-	{/if}
-	<Section isTop={!data?.quote}>
-		<div class="mt-6 flex justify-center">
+			</Image>
+		{/if}
+	</Section>
+	<Section isTop={!data?.quote} isEven={!data?.quote}>
+		<div id="portfolio" class="flex justify-center">
 			<a href={data.portfolio} target="_blank">
 				<Button class="rounded-full px-8 py-6 text-xl font-bold transition-all active:scale-95"
 					>View Full Portfolio</Button
@@ -140,7 +140,7 @@
 			</a>
 		</div>
 	</Section>
-	<Section>
+	<Section isEven={data?.quote}>
 		<Image>
 			<h2 id="services">Services</h2>
 			{#if data.about2}
@@ -149,7 +149,7 @@
 				</p>
 			{/if}
 		</Image>
-		<ul class="mx-auto my-6 max-w-screen-sm">
+		<ul class="mx-auto mb-6 mt-10 max-w-screen-sm">
 			{#each data?.lists || [] as list}
 				<Image>
 					<li class="playfair-display-text mt-8 text-2xl font-bold">{list[0]}</li>
@@ -162,7 +162,7 @@
 			{/each}
 		</ul>
 	</Section>
-	<Section>
+	<Section isEven={!data?.quote}>
 		<h2 id="reviews">Reviews</h2>
 		{#each data.reviews as review}
 			<Quote>
@@ -179,12 +179,14 @@
 			</Quote>
 		{/each}
 	</Section>
-	<div class="mb-16 flex justify-center">
-		<Button
-			on:click={contactTrigger}
-			class="rounded-full px-8 py-10 text-4xl font-bold transition-all active:scale-95"
-			>{data.cta}</Button
-		>
-	</div>
+	<Section isEven={data?.quote}>
+		<div class="flex justify-center">
+			<Button
+				on:click={contactTrigger}
+				class="rounded-full px-8 py-10 text-4xl font-bold transition-all active:scale-95"
+				>{data.cta}</Button
+			>
+		</div>
+	</Section>
 	<!-- <SiteFooter /> -->
 </div>

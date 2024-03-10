@@ -44,7 +44,7 @@
 <header class="sticky top-0 z-50 h-20 w-full overflow-x-hidden">
 	{#if isMounted}
 		<div
-			class="border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60 portrait:rounded-b-xl"
+			class="border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60"
 			in:fly={{ y: -30 }}
 		>
 			<div class="mx-auto flex h-14 max-w-screen-md items-center">
