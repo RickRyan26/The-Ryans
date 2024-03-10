@@ -27,7 +27,6 @@
 			<enhanced:img loading="eager" class="mx-auto w-full h-full object-cover" src={hilltop_img_header} alt="" />
 		{/if}
 	</div>
-	<!-- data-vaul-drawer-wrapper -->
 	<div class="relative flex min-h-screen flex-col" id="page">
 		<div class="mx-auto my-16 portrait:my-10 max-w-screen-md portrait:mx-2">
 			<!-- <SuperCard> -->

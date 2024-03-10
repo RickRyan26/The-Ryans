@@ -15,14 +15,14 @@
 	<Dialog.Header>
 		<h2 class="py-2">{$page.data.cta}</h2>
 		<Dialog.Description>
-			<div class="text-center text-xl font-bold">{$page.data.name}</div>
-			<div class="text-center text-xl">
-				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>	
+			<div class="text-center text-xl font-bold dark:!text-white/90">{$page.data.name}</div>
+			<div class="text-center text-xl dark:!text-white/90">
+				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>
 			</div>
-			<div class="text-center text-xl">
+			<div class="text-center text-xl dark:!text-white/90">
 				<a class="underline" href="mailto:{$page.data.email}">{$page.data.email}</a>
 			</div>
-			<div class="text-center text-xl">
+			<div class="text-center text-xl dark:!text-white/90">
 				<a
 					class="underline"
 					href="https://maps.google.com/?q={encodeURIComponent($page.data.address)}"
@@ -31,13 +31,13 @@
 			</div>
 		</Dialog.Description>
 	</Dialog.Header>
-	<form class="grid items-start gap-4 px-4 md:px-2 mt-4">
+	<form class="mt-4 grid items-start gap-4 px-4 md:px-2">
 		<div class="grid gap-2">
 			<Label for="email" class="text-lg">Email</Label>
 			<Input
 				type="email"
 				id="email"
-				class="bg-black/10 text-lg dark:bg-white/10"
+				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
 				placeholder="Enter your email..."
 			/>
 		</div>
@@ -46,7 +46,7 @@
 			<Textarea
 				rows={6}
 				id="Message"
-				class="bg-black/10 text-lg dark:bg-white/10"
+				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
 				placeholder="Enter your message..."
 			/>
 		</div>
@@ -56,17 +56,17 @@
 	</form>
 	<!-- <Button variant="outline">Cancel</Button> -->
 {:else}
-	<Drawer.Header class="text-left">
+	<Drawer.Header class="mx-auto max-w-screen-md text-left">
 		<h2 class="py-2">{$page.data.cta}</h2>
 		<Drawer.Description>
-			<div class="text-center text-xl font-bold">{$page.data.name}</div>
-			<div class="text-center text-xl">
+			<div class="text-center text-xl font-bold dark:!text-white/90">{$page.data.name}</div>
+			<div class="text-center text-xl dark:!text-white/90">
 				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>
 			</div>
-			<div class="text-center text-xl">
+			<div class="text-center text-xl dark:!text-white/90">
 				<a class="underline" href="mailto:{$page.data.email}">{$page.data.email}</a>
 			</div>
-			<div class="text-center text-xl">
+			<div class="text-center text-xl dark:!text-white/90">
 				<a
 					class="underline"
 					href="https://maps.google.com/?q={encodeURIComponent($page.data.address)}"
@@ -75,13 +75,13 @@
 			</div>
 		</Drawer.Description>
 	</Drawer.Header>
-	<form class="grid items-start gap-4 px-4 md:px-2 mt-4">
+	<form class="mx-auto mt-4 grid max-w-screen-md items-start gap-4 px-4 md:px-2">
 		<div class="grid gap-2">
 			<Label for="email" class="text-lg">Email</Label>
 			<Input
 				type="email"
 				id="email"
-				class="bg-black/10 text-lg dark:bg-white/10"
+				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
 				placeholder="Enter your email..."
 			/>
 		</div>
@@ -90,7 +90,7 @@
 			<Textarea
 				rows={6}
 				id="Message"
-				class="bg-black/10 text-lg dark:bg-white/10"
+				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
 				placeholder="Enter your message..."
 			/>
 		</div>
