@@ -94,7 +94,7 @@
 		@apply playfair-display-text neonText text-center text-4xl font-extrabold uppercase lg:text-6xl;
 	}
 	h2 {
-		@apply playfair-display-text mb-4 border-b pb-2 text-center text-3xl lg:text-5xl font-bold uppercase;
+		@apply playfair-display-text dark:neonText-sm mb-4 border-b pb-2 text-center text-3xl font-bold uppercase lg:text-5xl;
 	}
 	p {
 		@apply mt-2 text-center text-lg md:text-left md:indent-6;
@@ -111,5 +111,12 @@
 			0 0 42px #333,
 			0 0 82px #333,
 			0 0 92px #333;
+	}
+	.neonText-sm {
+		color: #fff;
+		text-shadow:
+			0 0 7px #000,
+			0 0 10px #000,
+			0 0 21px #000;
 	}
 }

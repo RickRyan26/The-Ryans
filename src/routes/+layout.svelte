@@ -17,18 +17,28 @@
 	class:!to-neutral-500={$page.data.src === 'debra'}
 	class:dark:!from-neutral-400={$page.data.src === 'debra'}
 	class:dark:!to-neutral-800={$page.data.src === 'debra'}
-	class="bg-gradient-to-br from-violet-200 to-violet-500 transition-all dark:from-violet-400 dark:to-violet-900"
+	class="w-[100vw] bg-gradient-to-br from-violet-200 to-violet-500 transition-all dark:from-violet-400 dark:to-violet-900"
 >
 	<SiteHeader />
-	<div class="fixed top-0 inset-0 portrait:w-[200vw]">
+	<div class="fixed inset-0 top-0 portrait:w-[200vw]">
 		{#if $page.data.src === 'debra'}
-			<enhanced:img loading="eager" class="mx-auto w-full h-full object-cover" src={debra_img_header} alt="" />
+			<enhanced:img
+				loading="eager"
+				class="mx-auto h-full w-full object-cover"
+				src={debra_img_header}
+				alt=""
+			/>
 		{:else}
-			<enhanced:img loading="eager" class="mx-auto w-full h-full object-cover" src={hilltop_img_header} alt="" />
+			<enhanced:img
+				loading="eager"
+				class="mx-auto -mt-64 h-full w-full object-cover"
+				src={hilltop_img_header}
+				alt=""
+			/>
 		{/if}
 	</div>
 	<div class="relative flex min-h-screen flex-col" id="page">
-		<div class="mx-auto my-16 portrait:my-10 max-w-screen-md portrait:mx-2">
+		<div class="mx-auto my-16 max-w-screen-md portrait:mx-2 portrait:my-10">
 			<!-- <SuperCard> -->
 			<!-- <marquee
 				class:!bg-neutral-300={data.src === 'debra'}
@@ -46,7 +56,7 @@
 			{#if $page.data.avatar}
 				<enhanced:img
 					src={debra_img_avatar}
-					class="mx-auto mt-6 w-2/3 rounded-lg border-2 border-neutral-500/50 shadow landscape:w-2/5"
+					class="mx-auto mt-6 w-2/3 max-w-[300px] rounded-lg border-2 border-neutral-500/50 shadow landscape:w-2/5"
 					sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 					alt=""
 				/>

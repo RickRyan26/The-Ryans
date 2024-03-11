@@ -41,7 +41,7 @@
 	});
 </script>
 
-<header class="sticky top-0 z-50 h-20 w-full overflow-x-hidden">
+<header class="sticky top-0 z-50 h-20 w-full">
 	{#if isMounted}
 		<div
 			class="border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60"
@@ -52,47 +52,53 @@
 					<Button
 						on:click={() => scrollTo('portfolio')}
 						variant="ghost"
-						class="font-bold landscape:text-lg portrait:!px-2.5">Portfolio</Button
+						class="font-bold portrait:!px-2.5 landscape:text-lg">Portfolio</Button
 					>
 					<Button
 						on:click={() => scrollTo('services')}
 						variant="ghost"
-						class="font-bold landscape:text-lg portrait:!px-2.5">Services</Button
+						class="font-bold portrait:!px-2.5 landscape:text-lg">Services</Button
 					>
 					<Button
 						on:click={() => scrollTo('reviews')}
 						variant="ghost"
-						class="font-bold landscape:text-lg portrait:!px-2.5">Reviews</Button
+						class="font-bold portrait:!px-2.5 landscape:text-lg">Reviews</Button
 					>
-					{#if $isDesktop}
+					<!-- {#if $isDesktop}
 						<Dialog.Root bind:open>
 							<Dialog.Trigger asChild let:builder>
-								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg portrait:!px-2.5"
+								<Button
+									id="contactTrigger"
+									builders={[builder]}
+									class="font-bold portrait:!px-2.5 landscape:text-lg"
 									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 								>
 							</Dialog.Trigger>
-							<Dialog.Content class="sm:max-w-[425px]">
+							<Dialog.Content class="">
 								<div in:fade>
 									<SuperForm isDialog={true} />
 								</div>
 							</Dialog.Content>
 						</Dialog.Root>
-					{:else}
-						<Drawer.Root bind:open>
-							<Drawer.Trigger asChild let:builder>
-								<Button id="contactTrigger" builders={[builder]} class="font-bold landscape:text-lg portrait:!px-2.5"
-									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
-								>
-							</Drawer.Trigger>
-							<Drawer.Content>
-								{#if fadeIn}
-									<div in:slide>
-										<SuperForm />
-									</div>
-								{/if}
-							</Drawer.Content>
-						</Drawer.Root>
-					{/if}
+					{:else} -->
+					<Drawer.Root bind:open>
+						<Drawer.Trigger asChild let:builder>
+							<Button
+								id="contactTrigger"
+								builders={[builder]}
+								class="font-bold portrait:!px-2.5 landscape:text-lg"
+								>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
+							>
+						</Drawer.Trigger>
+						<Drawer.Content>
+							{#if fadeIn}
+								<div in:fade>
+									<SuperForm />
+								</div>
+							{/if}
+						</Drawer.Content>
+					</Drawer.Root>
+					<!-- {/if} -->
 				</nav>
 				<!-- <MobileNav /> -->
 				<div class="flex flex-1 items-center justify-end space-x-2 pr-4">
