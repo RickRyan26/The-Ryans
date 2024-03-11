@@ -126,7 +126,7 @@ export const config = {
 		phone: `408-891-0573`,
 		address: `6584 Camden Ave, San Jose, CA 95120`,
 		quote: {
-			title: `Meet The Designer`,
+			title: `The Designer`,
 			text: `My education, talent, and years of experience allow me to advise my clients on all aspects of the remodeling and design process while incorporating their personal vision and style. I offer a professional, reliable service bringing unique ideas and creative, artistic solutions to the home, as well as specializing in new construction projects where it is extremely important to have a space plan and overall cohesive design concept at the architectural phase.`,
 			author: `Debra George-Ryan`
 		},

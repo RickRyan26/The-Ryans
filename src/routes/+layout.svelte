@@ -20,11 +20,11 @@
 	class="w-[100vw] bg-gradient-to-br from-violet-200 to-violet-500 transition-all dark:from-violet-400 dark:to-violet-900"
 >
 	<SiteHeader />
-	<div class="fixed inset-0 top-0">
+	<div class="fixed top-0 w-[100vw]">
 		{#if $page.data.src === 'debra'}
 			<enhanced:img
 				loading="eager"
-				class="mx-auto h-full w-full object-cover portrait:-mt-20"
+				class="mx-auto h-[100lvh] w-full object-cover portrait:-mt-20"
 				src={debra_img_header}
 				alt=""
 			/>x
@@ -59,7 +59,7 @@
 			{/if}
 			<h1
 				class:tracking-[0.65em]={$page.data.src === 'debra'}
-				class="text-3xl font-extrabold uppercase lg:text-5xl"
+				class="ml-4 text-2xl font-extrabold uppercase lg:text-5xl"
 			>
 				{$page.data.subtitle}
 			</h1>

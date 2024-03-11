@@ -12,7 +12,7 @@
 </script>
 
 {#if isDialog}
-	<Dialog.Header>
+	<!-- <Dialog.Header>
 		<h2 class="py-2">{$page.data.cta}</h2>
 		<Dialog.Description>
 			<div class="text-center text-xl font-bold dark:!text-white/90">{$page.data.name}</div>
@@ -53,20 +53,20 @@
 		<Dialog.Footer>
 			<Button type="submit" class="rounded-full text-2xl font-bold">Send&nbsp;<Send /></Button>
 		</Dialog.Footer>
-	</form>
+	</form> -->
 	<!-- <Button variant="outline">Cancel</Button> -->
 {:else}
 	<Drawer.Header class="mx-auto max-w-screen-md text-left">
 		<h2 class="py-2">{$page.data.cta}</h2>
 		<Drawer.Description>
-			<div class="text-center text-xl font-bold dark:!text-white/90">{$page.data.name}</div>
-			<div class="text-center text-xl dark:!text-white/90">
+			<div class="text-center text-base font-bold dark:!text-white/90">{$page.data.name}</div>
+			<div class="text-center text-base dark:!text-white/90">
 				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>
 			</div>
-			<div class="text-center text-xl dark:!text-white/90">
+			<div class="text-center text-base dark:!text-white/90">
 				<a class="underline" href="mailto:{$page.data.email}">{$page.data.email}</a>
 			</div>
-			<div class="text-center text-xl dark:!text-white/90">
+			<div class="text-center text-base dark:!text-white/90">
 				<a
 					class="underline"
 					href="https://maps.google.com/?q={encodeURIComponent($page.data.address)}"
@@ -75,7 +75,7 @@
 			</div>
 		</Drawer.Description>
 	</Drawer.Header>
-	<form class="mx-auto mt-4 grid max-w-screen-md items-start gap-4 px-4 md:px-2">
+	<form class="mx-auto mt-0 grid max-w-screen-md items-start gap-4 px-4 md:px-2">
 		<div class="grid gap-2">
 			<Label for="email" class="text-lg">Email</Label>
 			<Input
@@ -88,7 +88,7 @@
 		<div class="grid gap-2">
 			<Label for="Message" class="text-lg">Message</Label>
 			<Textarea
-				rows={6}
+				rows={4}
 				id="Message"
 				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
 				placeholder="Enter your message..."

@@ -52,17 +52,17 @@
 					<Button
 						on:click={() => scrollTo('portfolio')}
 						variant="ghost"
-						class="font-bold portrait:!px-2.5 landscape:text-lg">Portfolio</Button
+						class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg">Portfolio</Button
 					>
 					<Button
 						on:click={() => scrollTo('services')}
 						variant="ghost"
-						class="font-bold portrait:!px-2.5 landscape:text-lg">Services</Button
+						class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg">Services</Button
 					>
 					<Button
 						on:click={() => scrollTo('reviews')}
 						variant="ghost"
-						class="font-bold portrait:!px-2.5 landscape:text-lg">Reviews</Button
+						class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg">Reviews</Button
 					>
 					<!-- {#if $isDesktop}
 						<Dialog.Root bind:open>
@@ -86,7 +86,7 @@
 							<Button
 								id="contactTrigger"
 								builders={[builder]}
-								class="font-bold portrait:!px-2.5 landscape:text-lg"
+								class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg"
 								>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 							>
 						</Drawer.Trigger>
@@ -101,7 +101,7 @@
 					<!-- {/if} -->
 				</nav>
 				<!-- <MobileNav /> -->
-				<div class="flex flex-1 items-center justify-end space-x-2 pr-4">
+				<div class="flex flex-1 items-center justify-end space-x-2 portrait:pr-2 pr-4">
 					<!-- <div class="w-full flex-1 md:w-auto md:flex-none">
 				<CommandMenu />
 			</div> -->
