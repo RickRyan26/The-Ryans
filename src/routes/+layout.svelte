@@ -24,10 +24,10 @@
 		{#if $page.data.src === 'debra'}
 			<enhanced:img
 				loading="eager"
-				class="mx-auto portrait:-mt-20 h-full w-full object-cover"
+				class="mx-auto h-full w-full object-cover portrait:-mt-20"
 				src={debra_img_header}
 				alt=""
-			/>x	
+			/>x
 		{:else}
 			<enhanced:img
 				loading="eager"
@@ -38,7 +38,7 @@
 		{/if}
 	</div>
 	<div class="relative flex min-h-screen flex-col" id="page">
-		<div class="mx-auto my-16 max-w-screen-md portrait:mx-2 portrait:my-10">
+		<div class="mx-auto my-16 max-w-screen-md portrait:mx-0 portrait:my-10">
 			<!-- <SuperCard> -->
 			<!-- <marquee
 				class:!bg-neutral-300={data.src === 'debra'}
@@ -47,16 +47,26 @@
 			>
 				{data.marquee}
 			</marquee> -->
-			<h1>
-				{$page.data.title}
-			</h1>
-			<h1 class:tracking-[0.3em]={$page.data.src === 'debra'}>
+			{#if $page.data.src === 'debra'}
+				<h1>
+					<span class="large-letter">D</span>ebra <span class="large-letter">K</span>ay
+					<span class="large-letter">G</span>eorge
+				</h1>
+			{:else}
+				<h1>
+					{$page.data.title}
+				</h1>
+			{/if}
+			<h1
+				class:tracking-[0.65em]={$page.data.src === 'debra'}
+				class="text-3xl font-extrabold uppercase lg:text-5xl"
+			>
 				{$page.data.subtitle}
 			</h1>
 			{#if $page.data.avatar}
 				<enhanced:img
 					src={debra_img_avatar}
-					class="mx-auto portrait:mb-10 mt-10 w-1/2 max-w-[300px] rounded-lg border-2 border-neutral-500/50 shadow landscape:w-2/5"
+					class="mx-auto mt-10 w-1/2 max-w-[300px] rounded-lg border-2 border-neutral-500/50 shadow portrait:mb-10 landscape:w-2/5"
 					sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 					alt=""
 				/>
