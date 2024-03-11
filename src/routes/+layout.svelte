@@ -20,14 +20,14 @@
 	class="w-[100vw] bg-gradient-to-br from-violet-200 to-violet-500 transition-all dark:from-violet-400 dark:to-violet-900"
 >
 	<SiteHeader />
-	<div class="fixed inset-0 top-0 portrait:w-[200vw]">
+	<div class="fixed inset-0 top-0">
 		{#if $page.data.src === 'debra'}
 			<enhanced:img
 				loading="eager"
-				class="mx-auto h-full w-full object-cover"
+				class="mx-auto portrait:-mt-20 h-full w-full object-cover"
 				src={debra_img_header}
 				alt=""
-			/>
+			/>x	
 		{:else}
 			<enhanced:img
 				loading="eager"
@@ -50,13 +50,13 @@
 			<h1>
 				{$page.data.title}
 			</h1>
-			<h1>
+			<h1 class:tracking-[0.3em]={$page.data.src === 'debra'}>
 				{$page.data.subtitle}
 			</h1>
 			{#if $page.data.avatar}
 				<enhanced:img
 					src={debra_img_avatar}
-					class="mx-auto mt-6 w-2/3 max-w-[300px] rounded-lg border-2 border-neutral-500/50 shadow landscape:w-2/5"
+					class="mx-auto portrait:mb-10 mt-10 w-1/2 max-w-[300px] rounded-lg border-2 border-neutral-500/50 shadow landscape:w-2/5"
 					sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 					alt=""
 				/>
