@@ -73,7 +73,7 @@
 						</h1>
 						<enhanced:img
 							src={debra_img_avatar}
-							class="mx-auto mt-10 w-1/2 max-w-[300px] rounded-lg border-neutral-500/50 shadow-xl portrait:mb-10 landscape:w-2/5"
+							class="mx-auto mt-10 w-1/2 max-w-[300px] rounded-lg border-neutral-500/50 portrait:mb-10 landscape:w-2/5"
 							sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 							alt=""
 						/>
@@ -83,13 +83,13 @@
 						</h1>
 						<h1
 							class:tracking-[0.65em]={$page.data.src === 'debra'}
-							class="ml-4 mt-1 text-4xl font-extrabold uppercase lg:text-5xl"
+							class="ml-4 mt-3 text-4xl font-extrabold uppercase lg:text-5xl"
 						>
 							{$page.data.subtitle}
 						</h1>
 						<enhanced:img
 							src={hilltop_img_avatar}
-							class="mx-auto mt-10 w-1/2 max-w-[300px] rounded-lg border-neutral-500/50 shadow-xl portrait:mb-10 landscape:w-1/2"
+							class="mx-auto mt-10 w-1/2 max-w-[300px] rounded-lg border-neutral-500/50 portrait:mb-10 landscape:w-1/2"
 							sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 							alt=""
 						/>
