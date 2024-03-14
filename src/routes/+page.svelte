@@ -109,7 +109,7 @@
 					<Image>
 						<div class="inline-block min-h-40 overflow-hidden">
 							<enhanced:img
-								class="h-full w-full rounded-lg object-cover"
+								class="aspect-square h-full w-full rounded-lg object-cover"
 								src={photo}
 								alt=""
 								sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
@@ -122,7 +122,7 @@
 					<Image>
 						<div class="inline-block min-h-40 overflow-hidden">
 							<enhanced:img
-								class="h-full w-full rounded-lg object-cover"
+								class="aspect-square h-full w-full rounded-lg object-cover"
 								src={photo}
 								alt=""
 								sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"

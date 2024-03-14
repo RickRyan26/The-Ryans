@@ -45,7 +45,7 @@
 	{#if isMounted}
 		<div
 			class="border-b border-border/40 bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60"
-			in:fly={{ y: -30 }}
+			in:fade={{ duration: 700 }}
 		>
 			<div class="mx-auto flex h-14 max-w-screen-md items-center">
 				<nav class={cn('flex items-center space-x-1 pl-2', className)}>
@@ -101,7 +101,7 @@
 					<!-- {/if} -->
 				</nav>
 				<!-- <MobileNav /> -->
-				<div class="flex flex-1 items-center justify-end space-x-2 portrait:pr-2 pr-4">
+				<div class="flex flex-1 items-center justify-end space-x-2 pr-4 portrait:pr-2">
 					<!-- <div class="w-full flex-1 md:w-auto md:flex-none">
 				<CommandMenu />
 			</div> -->

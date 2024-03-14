@@ -11,7 +11,7 @@ export const config = {
 		portfolio: `https://www.google.com/maps/uv?pb=!1s0x80ecc5448b519e8d%3A0x70072d3ff127b68c!3m1!7e131!4s!5sHilltop%20365%20Vacation%20Rental%20Paso%20Robles!15sCgIgAQ&hl=en&imagekey=!1e10!2sAF1QipNW63u9kGpJb-u-4FUKldLR-jhsfyAttp0YQBWI`,
 		title: 'Hilltop 365',
 		subtitle: `Paso Robles, CA`,
-		about: `Indulge in Your Ultimate Retreat: Experience opulence in our meticulously crafted, 5-bedroom, 4.5-bath haven nestled amidst 2 acres of majestic oak trees. Strategically perched above downtown, relish the convenience of strolling to acclaimed restaurants, charming wineries, and boutique shops. This 3000 sq ft sanctuary features three expansive decks offering breathtaking vistas of the vibrant cityscape and rolling hills, all within the enchanting embrace of wine country. Your new favorite getaway awaits.`,
+		about: `Indulge in your ultimate retreat by experiencing opulence in our meticulously crafted, 5-bedroom, 4.5-bath haven nestled amidst 2 acres of majestic oak trees. Strategically perched above downtown, relish the convenience of strolling to acclaimed restaurants, charming wineries, and boutique shops. This 3000 sq ft sanctuary features three expansive decks offering breathtaking vistas of the vibrant cityscape and rolling hills, all within the enchanting embrace of wine country. Your new favorite vacation awaits.`,
 		name: 'Debra Ryan',
 		email: `hilltop365@gmail.com`,
 		phone: `408-891-0573`,
@@ -35,78 +35,32 @@ export const config = {
 		],
 		lists: [
 			[
-				'What this place offers',
+				'What this home offers',
 				[
-					'Bathroom',
-					'Bedroom and laundry',
-					'Entertainment',
-					'Family',
-					'Heating and cooling',
-					'Home safety',
-					'Internet and office',
-					'Kitchen and dining',
-					'Location features',
-					'Outdoor',
-					'Parking and facilities',
-					'Services'
+					`Fabulous location with stunning views and only 3 blocks walk to downtown Paso Robles`,
+					`5 bedrooms - 4.5 baths`,
+					`3 King bedrooms with en-suite bathrooms`,
+					`2 Queen bedrooms`,
+					`Outdoor shower`,
+					`Professionally designed`,
+					`Television in great room `,
+					`Television in each bedroom`,
+					`Bedding, linens, towels provided`,
+					`3 decks with views`,
+					`BBQ grill on the deck`,
+					`Fully stocked kitchen`,
+					`Hair dryers in each bathroom`,
+					`Air conditioning and heating`,
+					`Portable fan and heaters provided`,
+					`Keurig and drip coffee maker`,
+					`Check in with door code`,
+					`Free WiFi`,
+					`Sleeps 10`,
+					`Parking on driveway`,
+					`Washer and dryer`,
+					`Gas fireplace`,
 				]
-			],
-			['Bathroom', ['Bathtub', 'Hair dryer', 'Shampoo', 'Conditioner', 'Body soap', 'Hot water']],
-			[
-				'Bedroom and laundry',
-				[
-					'Washer',
-					'Dryer',
-					'Towels',
-					'bed sheets',
-					'soap',
-					'toilet paper',
-					'Hangers',
-					'Bed linens',
-					'Extra pillows and blankets',
-					'Room-darkening shades',
-					'Iron'
-				]
-			],
-			['Entertainment', ['Ethernet connection', 'TV']],
-			['Family', ['Baby safety gates']],
-			[
-				'Heating and cooling',
-				['Air conditioning', 'Indoor fireplace', 'Ceiling fan', 'Portable fans', 'Heating']
-			],
-			['Home safety', ['Smoke alarm', 'Carbon monoxide alarm', 'Fire extinguisher']],
-			['Internet and office', ['Wifi']],
-			[
-				'Kitchen and dining',
-				[
-					'Refrigerator',
-					'Microwave',
-					'Pots and pans, oil, salt and pepper',
-					'Dishes and silverware',
-					'Bowls, chopsticks, plates, cups, etc.',
-					'Mini fridge',
-					'Freezer',
-					'Dishwasher',
-					'Gas stove',
-					'Oven',
-					'Coffee maker: Keurig coffee machine',
-					'Baking sheet',
-					'Barbecue utensils',
-					'Grill, charcoal, bamboo skewers/iron skewers, etc.'
-				]
-			],
-			['Location features', ['Private entrance', 'Separate street or building entrance']],
-			[
-				'Outdoor',
-				[
-					'Private patio or balcony',
-					'Private backyard – Not fully fenced',
-					'An open space on the property usually covered in grass',
-					'BBQ grill'
-				]
-			],
-			['Parking and facilities', ['Free parking on premises']],
-			['Services', ['Self check-in', 'Keypad', 'Check yourself into the home with a door code']]
+			]
 		]
 	},
 	debra: {
