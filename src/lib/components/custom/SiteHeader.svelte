@@ -14,7 +14,7 @@
 	export { className as class };
 
 	$: isDesktop = mediaQuery('(min-width: 768px)');
-	$: console.warn('isDesktop:', $isDesktop);
+	
 	let open;
 	let fadeIn = false;
 

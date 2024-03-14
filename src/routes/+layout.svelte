@@ -11,6 +11,7 @@
 	import hilltop_img_header from '$lib/images/hilltop/header.jpg?&enhanced';
 	import { onMount } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
+	import { Toaster } from '$lib/components/ui/sonner';
 	// import SuperCard from '$lib/components/custom/SuperCard.svelte';
 
 	let duration = 700;
@@ -20,6 +21,7 @@
 	});
 </script>
 
+<Toaster position="top-center" richColors />
 <MetaData />
 {#if !isMounted}
 	<div

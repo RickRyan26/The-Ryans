@@ -8,38 +8,33 @@
 	import { Send } from 'lucide-svelte';
 	import { page } from '$app/stores';
 
-	export let isDialog = false;
-	console.warn('isDialog:', isDialog);
+	import { Instagram } from 'lucide-svelte';
+	import * as Form from '$lib/components/ui/form';
+	import { formSchema, type FormSchema } from '$lib/schema';
+	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	import { zodClient } from 'sveltekit-superforms/adapters';
+	import { toast } from 'svelte-sonner';
 
-	let email = '';
-	let message = '';
+	let closeButton: any;
+	let data: SuperValidated<Infer<FormSchema>> = $page.data.form;
 
-	async function handleSubmit() {
-		console.log('%c email', 'font-weight:bold', email);
-		console.log('%c message', 'font-weight:bold', message);
-		try {
-			const response = await fetch(`https://www.rickys.shop/api/email-relay`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					name: $page.data.title,
-					to: $page.data.email,
-					from: email,
-					html: `<p>${message}</p>`
-				})
-			});
-			if (response.ok) {
-				console.log(`email sent successfully`);
-				return await response.json();
+	const form = superForm(data, {
+		resetForm: false,
+		validators: zodClient(formSchema),
+		onResult({ result }) {
+			console.warn('Form Result!!!:', result);
+			if (result.type === 'success') {
+				toast.success('Email sent successfully!');
+				closeButton.click();
 			} else {
-				console.error(response.statusText);
+				toast.error('Email failed to send!');
 			}
-		} catch (error) {
-			console.error(error);
 		}
-	}
+	});
+
+	const { form: formData, enhance } = form;
+
+	export let isDialog = false;
 </script>
 
 {#if isDialog}
@@ -47,6 +42,14 @@
 		<h2 class="py-2">{$page.data.cta}</h2>
 		<Dialog.Description>
 			<div class="text-center text-xl font-bold dark:!text-white/90">{$page.data.name}</div>
+			{#if $page.data.ig}
+				<div class="text-center text-xl dark:!text-white/90">
+					<a class="underline" href={$page.data.igLink}>
+						<Instagram class="inline"/>
+						{$page.data.ig}</a
+					>
+				</div>
+			{/if}
 			<div class="text-center text-xl dark:!text-white/90">
 				<a class="underline" href="tel:{$page.data.phone}">{$page.data.phone}</a>
 			</div>
@@ -62,32 +65,47 @@
 			</div>
 		</Dialog.Description>
 	</Dialog.Header>
-	<form on:submit|preventDefault={handleSubmit} class="mt-4 grid items-start gap-4 px-4 md:px-2">
+	<form action="/" method="POST" use:enhance class="mt-4 grid items-start gap-4 px-4 md:px-2">
 		<div class="grid gap-2">
-			<Label for="email" class="text-lg">Email</Label>
-			<Input
-				bind:value={email}
-				type="email"
-				id="email"
-				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
-				placeholder="Enter your email..."
-			/>
+			<Form.Field {form} name="email">
+				<Form.Control let:attrs>
+					<Form.Label for="email" class="text-lg">Email</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.email}
+						type="email"
+						class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
+						placeholder="Enter your email..."
+					/>
+				</Form.Control>
+				<!-- <Form.Description>This is your public display name.</Form.Description> -->
+				<Form.FieldErrors />
+			</Form.Field>
 		</div>
 		<div class="grid gap-2">
-			<Label for="Message" class="text-lg">Message</Label>
-			<Textarea
-				bind:value={message}
-				rows={6}
-				id="Message"
-				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
-				placeholder="Enter your message..."
-			/>
+			<Form.Field {form} name="message">
+				<Form.Control let:attrs>
+					<Form.Label for="message" class="text-lg">Message</Form.Label>
+					<Textarea
+						{...attrs}
+						bind:value={$formData.message}
+						rows={6}
+						id="Message"
+						class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
+						placeholder="Enter your message..."
+					/>
+				</Form.Control>
+				<!-- <Form.Description>This is your public display name.</Form.Description> -->
+				<Form.FieldErrors />
+			</Form.Field>
 		</div>
 		<Dialog.Footer>
-			<Button type="submit" class="rounded-full text-2xl font-bold">Send&nbsp;<Send /></Button>
+			<Form.Button type="submit" class="rounded-full text-2xl font-bold"
+				>Send&nbsp;<Send /></Form.Button
+			>
 		</Dialog.Footer>
 	</form>
-	<!-- <Button variant="outline">Cancel</Button> -->
+	<Button bind:this={closeButton} class="hidden" variant="outline">Cancel</Button>
 {:else}
 	<Drawer.Header class="mx-auto max-w-screen-md text-left">
 		<h2 class="py-2">{$page.data.cta}</h2>
@@ -108,35 +126,49 @@
 			</div>
 		</Drawer.Description>
 	</Drawer.Header>
-	<form
-		on:submit|preventDefault={handleSubmit}
-		class="mx-auto mt-0 grid max-w-screen-md items-start gap-4 px-4 md:px-2"
-	>
+	<form action="/" method="POST" use:enhance class="mt-4 grid items-start gap-4 px-4 md:px-2">
 		<div class="grid gap-2">
-			<Label for="email" class="text-lg">Email</Label>
-			<Input
-				bind:value={email}
-				type="email"
-				id="email"
-				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
-				placeholder="Enter your email..."
-			/>
+			<Form.Field {form} name="email">
+				<Form.Control let:attrs>
+					<Form.Label for="email" class="text-lg">Email</Form.Label>
+					<Input
+						{...attrs}
+						bind:value={$formData.email}
+						type="email"
+						class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
+						placeholder="Enter your email..."
+					/>
+				</Form.Control>
+				<!-- <Form.Description>This is your public display name.</Form.Description> -->
+				<Form.FieldErrors />
+			</Form.Field>
+			<div class="grid gap-2">
+				<Form.Field {form} name="message">
+					<Form.Control let:attrs>
+						<Form.Label for="message" class="text-lg">Message</Form.Label>
+						<Textarea
+							{...attrs}
+							bind:value={$formData.message}
+							rows={6}
+							id="Message"
+							class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
+							placeholder="Enter your message..."
+						/>
+					</Form.Control>
+					<!-- <Form.Description>This is your public display name.</Form.Description> -->
+					<Form.FieldErrors />
+				</Form.Field>
+			</div>
+			<Drawer.Footer class="px-6 pt-2">
+				<Form.Button type="submit" class="rounded-full text-2xl font-bold"
+					>Send&nbsp;<Send /></Form.Button
+				>
+			</Drawer.Footer>
 		</div>
-		<div class="grid gap-2">
-			<Label for="Message" class="text-lg">Message</Label>
-			<Textarea
-				bind:value={message}
-				rows={4}
-				id="Message"
-				class="bg-black/10 text-lg dark:bg-white/10 dark:!placeholder-white/70"
-				placeholder="Enter your message..."
-			/>
-		</div>
-		<Drawer.Footer class="px-6 pt-2">
-			<Button type="submit" class="rounded-full text-2xl  font-bold">Send &nbsp;<Send /></Button>
-		</Drawer.Footer>
 	</form>
-	<!-- <Drawer.Close asChild let:builder>
-			<Button variant="outline" builders={[builder]}>Cancel</Button>
-		</Drawer.Close> -->
+	<Drawer.Close asChild let:builder>
+		<Button bind:this={closeButton} class="hidden" variant="outline" builders={[builder]}
+			>Cancel</Button
+		>
+	</Drawer.Close>
 {/if}
