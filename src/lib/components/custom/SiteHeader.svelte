@@ -13,7 +13,8 @@
 	let className: string | undefined | null = undefined;
 	export { className as class };
 
-	const isDesktop = mediaQuery('(min-width: 768px)');
+	$: isDesktop = mediaQuery('(min-width: 768px)');
+	$: console.warn('isDesktop:', $isDesktop);
 	let open;
 	let fadeIn = false;
 
@@ -64,7 +65,7 @@
 						variant="ghost"
 						class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg">Reviews</Button
 					>
-					<!-- {#if $isDesktop}
+					{#if $isDesktop}
 						<Dialog.Root bind:open>
 							<Dialog.Trigger asChild let:builder>
 								<Button
@@ -80,25 +81,25 @@
 								</div>
 							</Dialog.Content>
 						</Dialog.Root>
-					{:else} -->
-					<Drawer.Root bind:open>
-						<Drawer.Trigger asChild let:builder>
-							<Button
-								id="contactTrigger"
-								builders={[builder]}
-								class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg"
-								>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
-							>
-						</Drawer.Trigger>
-						<Drawer.Content>
-							{#if fadeIn}
-								<div in:fade>
-									<SuperForm />
-								</div>
-							{/if}
-						</Drawer.Content>
-					</Drawer.Root>
-					<!-- {/if} -->
+					{:else}
+						<Drawer.Root bind:open>
+							<Drawer.Trigger asChild let:builder>
+								<Button
+									id="contactTrigger"
+									builders={[builder]}
+									class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg"
+									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
+								>
+							</Drawer.Trigger>
+							<Drawer.Content>
+								{#if fadeIn}
+									<div in:fade>
+										<SuperForm />
+									</div>
+								{/if}
+							</Drawer.Content>
+						</Drawer.Root>
+					{/if}
 				</nav>
 				<!-- <MobileNav /> -->
 				<div class="flex flex-1 items-center justify-end space-x-2 pr-4 portrait:pr-2">
