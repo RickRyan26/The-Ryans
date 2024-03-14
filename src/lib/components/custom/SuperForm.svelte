@@ -2,7 +2,6 @@
 	import * as Drawer from '$lib/components/ui/drawer';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { Input } from '$lib/components/ui/input';
-	import { Label } from '$lib/components/ui/label';
 	import { Button } from '$lib/components/ui/button';
 	import { Textarea } from '$lib/components/ui/textarea';
 	import { Send } from 'lucide-svelte';
@@ -25,7 +24,7 @@
 			console.warn('Form Result!!!:', result);
 			if (result.type === 'success') {
 				toast.success('Email sent successfully!');
-				closeButton.click();
+				closeButton?.click?.();
 			} else {
 				toast.error('Email failed to send!');
 			}
@@ -45,7 +44,7 @@
 			{#if $page.data.ig}
 				<div class="text-center text-xl dark:!text-white/90">
 					<a class="underline" href={$page.data.igLink}>
-						<Instagram class="inline"/>
+						<Instagram class="inline" />
 						{$page.data.ig}</a
 					>
 				</div>
@@ -105,7 +104,6 @@
 			>
 		</Dialog.Footer>
 	</form>
-	<Button bind:this={closeButton} class="hidden" variant="outline">Cancel</Button>
 {:else}
 	<Drawer.Header class="mx-auto max-w-screen-md text-left">
 		<h2 class="py-2">{$page.data.cta}</h2>
@@ -167,8 +165,8 @@
 		</div>
 	</form>
 	<Drawer.Close asChild let:builder>
-		<Button bind:this={closeButton} class="hidden" variant="outline" builders={[builder]}
-			>Cancel</Button
+		<Button class="hidden" variant="outline" builders={[builder]}
+			><button bind:this={closeButton}>Cancel</button></Button
 		>
 	</Drawer.Close>
 {/if}
