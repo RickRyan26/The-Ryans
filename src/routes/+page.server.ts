@@ -2,11 +2,14 @@
 import { config } from '$lib/config';
 
 export async function load({ url }) {
-	const id = url.searchParams.get('id')
-		? url.searchParams.get('id')
-		: url.origin === 'https://www.debrakaygeorgeinteriors.com'
+	const id =
+		url.searchParams.get('id') === 'debra'
 			? 'debra'
-			: 'hilltop';
+			: url.searchParams.get('id') === 'hilltop'
+				? 'hilltop'
+				: url.origin === 'https://www.debrakaygeorgeinteriors.com'
+					? 'debra'
+					: 'hilltop';
 
 	// if (!id) {
 	// 	error(404, {
