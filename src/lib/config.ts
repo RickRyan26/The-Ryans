@@ -13,7 +13,7 @@ export const config = {
 		subtitle: `Paso Robles, CA`,
 		about: `Indulge in your ultimate retreat by experiencing opulence in our meticulously crafted, 5-bedroom, 4.5-bath haven nestled amidst 2 acres of majestic oak trees. Strategically perched above downtown, relish the convenience of strolling to acclaimed restaurants, charming wineries, and boutique shops. This 3000 sq ft sanctuary features three expansive decks offering breathtaking vistas of the vibrant cityscape and rolling hills, all within the enchanting embrace of wine country. Your new favorite vacation awaits.`,
 		name: 'Debra Ryan',
-		email: `hilltop365@gmail.com`,
+		email: `hilltop@gmail.com`,
 		phone: `408-891-0573`,
 		address: `365 Hilltop Drive, Paso Robles, CA 93446`,
 		quote: {
