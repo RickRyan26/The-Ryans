@@ -27,8 +27,7 @@ export const actions: Actions = {
 		}
 		try {
 			console.log('sending email');
-			const response = await fetch(`https://www.standardgates.com/api/email-relay`, {
-				// const response = await fetch(`https://www.rickys.shop/api/email-relay`, {
+			const response = await fetch(`https://updates.rickys.shop/api/email-relay`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
