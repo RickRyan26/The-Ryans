@@ -4,6 +4,7 @@
 	import Quote from '$lib/components/custom/Quote.svelte';
 	import Image from '$lib/components/custom/Image.svelte';
 	import { onMount } from 'svelte';
+	import { mediaQuery } from 'svelte-legos';
 
 	import debra_img_1 from '$lib/images/debra/1.jpg?w=1280;640;400&enhanced';
 	import debra_img_2 from '$lib/images/debra/2.jpg?w=1280;640;400&enhanced';
@@ -51,10 +52,11 @@
 
 	export let { data } = $$props;
 
-	let scrollY = 0;
-	let bannerHeight = 0;
+	$: isDesktop = mediaQuery('(min-width: 768px)');
 
-	$: isScrolled = scrollY > 30;
+	let scrollY = 0;
+	let innerWidth = 0;
+	let imageDistance = [];
 
 	const contactTrigger = () => {
 		const contactTrigger = document.getElementById('contactTrigger');
@@ -79,7 +81,7 @@
 	// });
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerWidth />
 <div class="">
 	<Section isTop={true}>
 		<h2 class="mt-6">{data.quote.title}</h2>
@@ -103,14 +105,15 @@
 				>
 			</a>
 		</div>
+		<!-- {#if $isDesktop} -->
 		<div class="-mx-4 grid gap-2 pt-6 md:-mx-2 md:grid-cols-3 md:gap-4">
 			{#if data.src === 'debra'}
-				{#each debraPortfolio as photo}
+				{#each debraPortfolio as image}
 					<Image>
 						<div class="inline-block min-h-40 overflow-hidden">
 							<enhanced:img
 								class="aspect-square h-full w-full rounded-lg object-cover"
-								src={photo}
+								src={image}
 								alt=""
 								sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 							/>
@@ -118,12 +121,12 @@
 					</Image>
 				{/each}
 			{:else}
-				{#each hilltopPortfolio as photo}
+				{#each hilltopPortfolio as image}
 					<Image>
 						<div class="inline-block min-h-40 overflow-hidden">
 							<enhanced:img
 								class="aspect-square h-full w-full rounded-lg object-cover"
-								src={photo}
+								src={image}
 								alt=""
 								sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
 							/>
@@ -132,6 +135,33 @@
 				{/each}
 			{/if}
 		</div>
+		<!-- {:else}
+			<div class="overflow-hidden" >
+				{#if data.src === 'debra'}
+					{#each debraPortfolio as image, index}
+						<div bind:offsetTop={imageDistance[i]} style={`transform: translate(0, ${scrollY 0}px)`}>
+							<enhanced:img
+								class="aspect-square h-full w-full rounded-lg object-cover"
+								src={image}
+								alt=""
+								sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
+							/>
+						</div>
+					{/each}
+				{:else}
+					{#each hilltopPortfolio as image, index}
+						<div style={`transform: translate(0, ${0}px)`}>
+							<enhanced:img
+								class="aspect-square h-full w-full rounded-lg object-cover"
+								src={image}
+								alt=""
+								sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px"
+							/>
+						</div>
+					{/each}
+				{/if}
+			</div>
+		{/if} -->
 		<div class="mt-6 flex justify-center">
 			<a href={data.portfolio} target="_blank">
 				<Button class="rounded-full px-8 py-6 text-xl font-bold transition-all active:scale-95"

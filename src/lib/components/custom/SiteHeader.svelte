@@ -14,7 +14,7 @@
 	export { className as class };
 
 	$: isDesktop = mediaQuery('(min-width: 768px)');
-	
+
 	let open;
 	let fadeIn = false;
 
@@ -71,7 +71,8 @@
 								<Button
 									id="contactTrigger"
 									builders={[builder]}
-									class="font-bold portrait:!px-2.5 landscape:text-lg"
+									variant="ghost"
+									class="text-sm font-bold portrait:!px-1 landscape:text-lg"
 									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 								>
 							</Dialog.Trigger>
@@ -87,8 +88,8 @@
 								<Button
 									id="contactTrigger"
 									builders={[builder]}
-									class="font-bold portrait:!px-1 portrait:text-sm landscape:text-lg"
-									>{$page?.data?.cta?.split?.(' ')?.[0]}</Button
+									class="text-sm font-bold portrait:!px-1 landscape:text-lg"
+									variant="ghost">{$page?.data?.cta?.split?.(' ')?.[0]}</Button
 								>
 							</Drawer.Trigger>
 							<Drawer.Content>

@@ -12,7 +12,60 @@
 	import { onMount } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
 	import { Toaster } from '$lib/components/ui/sonner';
+	import Slideshow from '$lib/components/custom/Slideshow.svelte';
 	// import SuperCard from '$lib/components/custom/SuperCard.svelte';
+	import debra_img_1 from '$lib/images/debra/1.jpg?w=1280;640;400&enhanced';
+	import debra_img_2 from '$lib/images/debra/2.jpg?w=1280;640;400&enhanced';
+	import debra_img_3 from '$lib/images/debra/3.jpg?w=1280;640;400&enhanced';
+	import debra_img_4 from '$lib/images/debra/4.jpg?w=1280;640;400&enhanced';
+	import debra_img_5 from '$lib/images/debra/5.jpg?w=1280;640;400&enhanced';
+	import debra_img_6 from '$lib/images/debra/6.jpg?w=1280;640;400&enhanced';
+	import debra_img_7 from '$lib/images/debra/7.jpg?w=1280;640;400&enhanced';
+	import debra_img_8 from '$lib/images/debra/8.jpg?w=1280;640;400&enhanced';
+	import debra_img_9 from '$lib/images/debra/9.jpg?w=1280;640;400&enhanced';
+
+	import hilltop_img_1 from '$lib/images/hilltop/1.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_2 from '$lib/images/hilltop/2.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_3 from '$lib/images/hilltop/3.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_4 from '$lib/images/hilltop/4.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_5 from '$lib/images/hilltop/5.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_6 from '$lib/images/hilltop/6.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_7 from '$lib/images/hilltop/7.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_8 from '$lib/images/hilltop/8.jpg?w=1280;640;400&enhanced';
+	import hilltop_img_9 from '$lib/images/hilltop/9.jpg?w=1280;640;400&enhanced';
+
+	const debraPortfolio = [
+		debra_img_header,
+		debra_img_1,
+		debra_img_2,
+		debra_img_3,
+		debra_img_4,
+		// debra_img_5,
+		debra_img_6,
+		debra_img_7,
+		debra_img_8,
+		debra_img_9
+	];
+
+	const hilltopPortfolio = [
+		hilltop_img_header,
+		hilltop_img_1,
+		hilltop_img_2,
+		hilltop_img_3,
+		hilltop_img_4,
+		hilltop_img_5,
+		hilltop_img_6,
+		hilltop_img_7,
+		hilltop_img_8,
+		hilltop_img_9
+	];
+
+	const contactTrigger = () => {
+		const contactTrigger = document.getElementById('contactTrigger');
+		if (contactTrigger) {
+			contactTrigger.click();
+		}
+	};
 
 	let duration = 700;
 	let isMounted = false;
@@ -35,23 +88,25 @@
 	<SiteHeader />
 	<div class="fixed top-0 w-[100vw]">
 		{#if $page.data.src === 'debra'}
-			<enhanced:img
+			<Slideshow images={debraPortfolio} />
+			<!-- <enhanced:img
 				loading="eager"
 				class="mx-auto h-[100lvh] w-full object-cover portrait:-mt-20"
 				src={debra_img_header}
 				alt=""
-			/>x
+			/> -->
 		{:else}
-			<enhanced:img
+			<Slideshow images={hilltopPortfolio} />
+			<!-- <enhanced:img
 				loading="eager"
 				class="mx-auto h-[100lvh] w-full object-cover"
 				src={hilltop_img_header}
 				alt=""
-			/>
+			/> -->
 		{/if}
 	</div>
 	<div class="relative flex min-h-screen flex-col" id="page">
-		<div class="mx-auto my-16 max-w-screen-md portrait:mx-0 portrait:my-10">
+		<div class="mx-auto mt-2 max-w-screen-md portrait:mx-0 portrait:my-10">
 			<!-- <SuperCard> -->
 			<!-- <marquee
 				class:!bg-neutral-300={data.src === 'debra'}
@@ -96,6 +151,16 @@
 							alt=""
 						/>
 					{/if}
+					<div class="flex justify-center">
+						<button
+							on:click={contactTrigger}
+							type="button"
+							class="btn mx-auto mb-6 mt-10 rounded-full border-0 bg-white/30 px-8 pb-2 pt-[9px] text-3xl font-bold text-black shadow-lg backdrop-blur transition-all hover:scale-95 portrait:my-0"
+						>
+							{$page.data.cta}
+						</button>
+					</div>
+
 					<!-- <div class="relative">
 				<p bind:this={aboutEl} class="absolute top-0 z-10 text-left indent-6"></p>
 				<p class="invisible">{data.about}</p>
