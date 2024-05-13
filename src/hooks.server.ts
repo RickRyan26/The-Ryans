@@ -7,7 +7,7 @@ export async function handle({ event, resolve }) {
 			? 'debra'
 			: url.searchParams.get('id') === 'hilltop'
 				? 'hilltop'
-				: url.origin === 'https://www.debrakaygeorgeinteriors.com'
+				: url.href.includes('debrakaygeorgeinteriors.com')
 					? 'debra'
 					: 'hilltop';
 
