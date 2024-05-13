@@ -2,12 +2,20 @@ import { config } from '$lib/config';
 
 export async function handle({ event, resolve }) {
 	const url = new URL(event.url);
+
+	if (url.pathname !== '/' && !url.pathname.includes('/images/')) {
+		return new Response(null, {
+			status: 302,
+			headers: { location: '/' }
+		});
+	}
+
 	const id =
 		url.searchParams.get('id') === 'debra'
 			? 'debra'
 			: url.searchParams.get('id') === 'hilltop'
 				? 'hilltop'
-				: url.href.includes('debrakaygeorgeinteriors.com')
+				: url.origin === 'https://www.debrakaygeorgeinteriors.com'
 					? 'debra'
 					: 'hilltop';
 
