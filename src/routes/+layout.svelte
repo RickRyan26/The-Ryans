@@ -34,6 +34,8 @@
 	import hilltop_img_8 from '$lib/images/hilltop/8.jpg?w=1280;640;400&enhanced';
 	import hilltop_img_9 from '$lib/images/hilltop/9.jpg?w=1280;640;400&enhanced';
 
+	export const prerender = true;
+
 	const debraPortfolio = [
 		debra_img_header,
 		debra_img_1,
