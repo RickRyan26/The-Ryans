@@ -58,7 +58,8 @@ export const config = {
 					`Sleeps 10`,
 					`Parking on driveway`,
 					`Washer and dryer`,
-					`Gas fireplace`
+					`Gas fireplace`,
+					`Please note: This is not a party house. Max occupancy 10. Sorry no pets or children under 14. Thank you for understanding.`
 				]
 			]
 		]
